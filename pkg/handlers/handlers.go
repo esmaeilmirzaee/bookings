@@ -1,10 +1,12 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/esmaeilmirzaee/bookings/pkg/models"
+	"github.com/esmaeilmirzaee/bookings/pkg/renders"
 )
 
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Welcome</h1>")
+	renders.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
