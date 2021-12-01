@@ -1,0 +1,5 @@
+.env
+
+# Prevent ide's config
+./idea
+./vscode
