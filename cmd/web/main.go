@@ -19,6 +19,7 @@ func main() {
 	// Alter the following to true in production model
 	app.IsProduction = false
 
+	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.SameSite = http.SameSiteLaxMode
 	session.Cookie.Persist = false

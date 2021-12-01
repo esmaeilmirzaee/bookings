@@ -3,3 +3,4 @@
 # Prevent ide's config
 ./idea
 ./vscode
+.DS_Store

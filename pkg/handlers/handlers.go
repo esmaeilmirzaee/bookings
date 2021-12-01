@@ -24,6 +24,6 @@ func NewHandlers(r *Repository) {
 	Repo = r
 }
 
-func HomePageHandler(w http.ResponseWriter, r *http.Request) {
+func (e *Repository) HomePageHandler(w http.ResponseWriter, r *http.Request) {
 	renders.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
