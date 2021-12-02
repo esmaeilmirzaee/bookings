@@ -27,3 +27,7 @@ func NewHandlers(r *Repository) {
 func (e *Repository) HomePageHandler(w http.ResponseWriter, r *http.Request) {
 	renders.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
+
+func (e *Repository) LoginPageHandler(w http.ResponseWriter, r *http.Request) {
+	renders.RenderTemplate(w, "login.page.tmpl", &models.TemplateData{})
+}

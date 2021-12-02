@@ -1,6 +1,6 @@
 .env
 
 # Prevent ide's config
-./idea
-./vscode
+.idea
+.vscode
 .DS_Store

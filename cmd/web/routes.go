@@ -12,6 +12,7 @@ func routes(app *config.AppConfig) http.Handler {
 	mux := chi.NewMux()
 
 	mux.Get("/", handlers.Repo.HomePageHandler)
+	mux.Get("/login", handlers.Repo.LoginPageHandler)
 
 	fileserver := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileserver))
