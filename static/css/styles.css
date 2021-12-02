@@ -64,11 +64,9 @@
     margin: 0;
     max-height: 40px;
 }
-
 .scrolled-offset {
     margin-top: 70px;
 }
-
 /*--------------------------------------------------------------
   # Navigation Menu
   --------------------------------------------------------------*/
@@ -733,7 +731,6 @@ Login
     text-decoration: none;
     user-select: none;
 }
-
 .link_link__tEM4H {
     color: inherit;
     cursor: pointer;
@@ -746,13 +743,20 @@ Login
 .default_inputAndPlaceholderContainer__1Rge_ {
     position: relative;
 }
-
+.signup_extraFieldsContainer__3iUdK.signup_show__2AHHq {
+    height: auto;
+    max-height: 300px;
+    visibility: visible;
+}
+.signup_field__26g52 {
+    margin-bottom: 8px;
+}
 .default_placeholder__2OZiG {
     -moz-transition: font 0.2s, top 0.2s;
     -ms-transition: font 0.2s, top 0.2s;
     -o-transition: font 0.2s, top 0.2s;
     -webkit-transition: font 0.2s, top 0.2s;
-    color: #6d758d;
+    color: #91817b;
     font-size: 14px;
     left: 12px;
     line-height: 21px;
@@ -834,4 +838,58 @@ div.typography_small__2MagS {
 div.typography_xsmall__2NZHc {
     font-size: 12px;
     line-height: 18px;
+}
+.default_message__3AQOF {
+    color: #746762;
+    font-size: 11px;
+    line-height: 16px;
+    padding: 4px 12px 0;
+}
+.default_suffixContainer__DcFFa {
+    border-radius: 4px;
+    height: 100%;
+    padding: 0 12px 0 0;
+}
+.password_passwordIcon__34TQQ,
+.password_passwordSuffixContainer__2ZmfG {
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -o-box-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+}
+.password_clickable__1zp29 {
+    cursor: pointer;
+}
+.password_passwordIcon__34TQQ {
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -o-box-pack: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    height: 20px;
+    justify-content: center;
+    width: 20px;
+}
+.default_inputAndSuffixContainer__2m_b7,
+.default_suffixContainer__DcFFa {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+}
+.default_placeholder__2OZiG.default_minimized__WCyMY {
+    font-size: 11px;
+    left: 12px;
+    line-height: 13px;
+    top: 5px;
 }

@@ -31,3 +31,7 @@ func (e *Repository) HomePageHandler(w http.ResponseWriter, r *http.Request) {
 func (e *Repository) LoginPageHandler(w http.ResponseWriter, r *http.Request) {
 	renders.RenderTemplate(w, "login.page.tmpl", &models.TemplateData{})
 }
+
+func (e *Repository) SignupPageHandler(w http.ResponseWriter, r *http.Request) {
+	renders.RenderTemplate(w, "registration.page.tmpl", &models.TemplateData{})
+}

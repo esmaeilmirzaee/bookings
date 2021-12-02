@@ -254,6 +254,32 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <script>
+            let inputs = document.querySelectorAll('input');
+            let labels = document.querySelectorAll(
+                '.default_placeholder__2OZiG',
+            );
+
+            inputs &&
+                inputs.forEach((input, idx) => {
+                    input.addEventListener('focus', () => {
+                        labels.forEach((label, index) => {
+                            if (idx != index) {
+                                label.classList.remove(
+                                    'default_minimized__WCyMY',
+                                );
+                            } else {
+                                label.classList.add('default_minimized__WCyMY');
+                            }
+                        });
+                    });
+                    input.addEventListener('blur', () => {
+                        labels.forEach((label) => {
+                            label.classList.remove('default_minimized__WCyMY');
+                        });
+                    });
+                });
+        </script>
     </body>
 </html>
 
