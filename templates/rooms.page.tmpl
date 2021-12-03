@@ -1,5 +1,77 @@
 {{template "base" .}}
 
 {{define "content"}}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col">
+            <img class="img-fluid img-thumbnail" src="/static/images/img-3.jpg" alt="Reserve Rooms">
+            <p class="text-ceter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias doloribus expedita
+                fugiat
+                incidunt laudantium magni nam porro sequi ut. Ad asperiores dignissimos fuga iure nam nesciunt possimus, quos sint voluptatibus.</p>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col d-grid">
+            <button id="check" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchdate">Check
+            </button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
 
+{{end}}
+
+{{define "js"}}
+<script>
+    let html = `<div id="searchdate" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Pick dates</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="search_date_form" class="" action="/" method="post">
+                    <div class="row">
+                        <div class="col input-group">
+                            <input id="arrival" class="mx-2 form-control" type="text" placeholder="Arrival">
+                            <input id="departure" class="mx-2 form-control" type="text" placeholder="Departure">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success">Search</button>
+            </div>
+        </div>
+    </div>
+</div>`
+
+    let checkElm = document.getElementById("check");
+
+    const start = new Datepicker(document.getElementById("arrival"), {})
+    const end = new Datepicker(document.getElementById("departure"), {})
+
+    notify.custom({
+        msg: html,
+        title: "",
+        callback: function(result) {
+            let form = document.getElementById("search_date_form")
+            let formData = new FormData(form)
+            formData.append("csrf_token", "{{.CSRFToken}}")
+
+            fetch("/", {
+                method: "post",
+                body: formData,
+            })
+                .then(response=> response.json())
+                .then(data => console.log(data))
+
+        }
+    })
+
+</script>
 {{end}}

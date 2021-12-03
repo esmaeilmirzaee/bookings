@@ -64,3 +64,7 @@ func (e *Repository) JSONResponseHandler(w http.ResponseWriter, r *http.Request)
 func (e *Repository) SignupPageHandler(w http.ResponseWriter, r *http.Request) {
 	renders.RenderTemplate(w, r, "registration.page.tmpl", &models.TemplateData{})
 }
+
+func (e *Repository) RoomPageHandler(w http.ResponseWriter, r *http.Request) {
+	renders.RenderTemplate(w, r, "rooms.page.tmpl", &models.TemplateData{})
+}

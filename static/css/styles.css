@@ -666,7 +666,9 @@ Login
     margin-bottom: 24px;
     width: 100%;
 }
-
+.datepicker.active {
+    z-index: 100000 !important;
+}
 .base-module_backContainer__2yOFX {
     cursor: pointer;
     height: 32px;

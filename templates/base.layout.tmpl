@@ -18,6 +18,13 @@
         />
         <!-- Datepicker -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css">
+        <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"
+        ></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
 
 
         {{block "css" .}}
@@ -82,7 +89,7 @@
                     <ul>
                         <li><a class="active" href="/">Home</a></li>
                         <li class="dropdown">
-                            <a href="#"
+                            <a href="/rooms"
                                 ><span>Rooms</span>
                                 <i class="bi bi-chevron-down"></i
                             ></a>
@@ -238,13 +245,6 @@
 
         {{block "js" .}}
         {{ end }}
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker-full.min.js"></script>
         <script>
             let inputs = document.querySelectorAll('input');
             let labels = document.querySelectorAll(
@@ -273,11 +273,29 @@
         </script>
         <script>
             let search = document.getElementById('search')
-            search.addEventListener('focus', notify("hi"))
-            search.addEventListener('blur', notify("bye"))
+            // search.addEventListener('focus', notify("hi"))
+            // search.addEventListener('blur', notify("bye"))
 
-            function notify(title, message, icon) {
-                Swal.fire(`${title} ${message}`)
+            async function custom({title, msg}) {
+                const
+                {
+                    value, result
+                } = Swal.fire({
+                    title,
+                    html: msg,
+                    backdrop: false,
+                    focusConfirm: false,
+                    showCancelButton: false,
+                    willOpen: () => {
+                        c.willOpen && c.willOpen()
+                    },
+                    preConfirm: () => {
+
+                    },
+                    didOpen: () => {
+                        c.didOpen && c.didOpen()
+                    }
+                })
             }
         </script>
     </body>
