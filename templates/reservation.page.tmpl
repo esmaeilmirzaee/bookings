@@ -1,5 +1,38 @@
 {{template "base" .}}
 
 {{define "content"}}
-
+<div class="container">
+    {{$res := index .Data "reservation"}}
+        <form action="/reservation" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="col-6">
+                    <label for="first_name" class="text-primary">First Name</label>
+                    {{with .Form.Errors.Get "first_name"}}
+                        <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class='form-group {{with .Form.Errors.Get "first_name"}} is-danger {{end}}'
+                    value='{{$res.FirstName}}'>
+                </div>
+                <div class="col-6">
+                    <label for="last_name" class="text-primary">Last Name</label>
+                    {{with .Form.Errors.Get "last_name"}}
+                        <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class='form-group {{with .Form.Errors.Get "last_name"}} is_danger {{end}}'
+                           value="{{$res.LastName}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="email" class="text-primary">Email</label>
+                    {{with .Form.Errors.Get "email"}}
+                        <label class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class='form-group {{with .Form.Errors.Get "email"}} is-danger {{end}}'
+                           value="{{$res.Email}}">
+                </div>
+            </div>
+            <button class="btn btn-primary">Reserve</button>
+        </form>
+</div>
 {{end}}

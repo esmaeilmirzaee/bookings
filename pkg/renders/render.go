@@ -20,7 +20,11 @@ func NewTemplate(a *config.AppConfig) {
 }
 
 func DefaultTemplate(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.Error = app.Session.PopString(r.Context(), "error")
+	td.Flash = app.Session.PopString(r.Context(), "flash")
+	td.Warning = app.Session.PopString(r.Context(), "Warning")
 	td.CSRFToken = nosurf.Token(r)
+
 	return td
 }
 
@@ -35,7 +39,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, templateName string,
 
 	t, ok := tc[templateName]
 	if !ok {
-		log.Fatal("Cannot read template")
+		log.Fatal("Cannot read template", tc[templateName])
 	}
 
 	buf := new(bytes.Buffer)
@@ -65,7 +69,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 
 		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
-			log.Fatal("Could not parse templates")
+			log.Fatal("Could not parse templates", page)
 		}
 
 		matches, err := filepath.Glob("./templates/*.layout.tmpl")

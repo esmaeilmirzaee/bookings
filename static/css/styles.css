@@ -666,7 +666,9 @@ Login
     margin-bottom: 24px;
     width: 100%;
 }
-
+.datepicker.active {
+    z-index: 100000 !important;
+}
 .base-module_backContainer__2yOFX {
     cursor: pointer;
     height: 32px;
@@ -688,7 +690,7 @@ Login
     border-radius: 4px;
     box-flex: 1;
     flex: 1;
-    padding: 12px 12px 0;
+    padding: 0;
 }
 .base_input__2az6D {
     border: none;
@@ -764,17 +766,6 @@ Login
     position: absolute;
     top: 13px;
     transition: font 0.2s, top 0.2s;
-}
-.default_input__3Uo21 {
-    -moz-box-flex: 1;
-    -ms-flex: 1;
-    -o-box-flex: 1;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    border-radius: 4px;
-    box-flex: 1;
-    flex: 1;
-    padding: 12px 12px 0;
 }
 .signin_textFieldsContainer__vZ7MH {
     margin-bottom: 16px;

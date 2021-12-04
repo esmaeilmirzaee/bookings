@@ -1,0 +1,24 @@
+{{template "base" .}}
+
+{{define "content"}}
+    {{$res := index .Data "reservation"}}
+    <div class="container">
+        <div class="row">
+            <div class="col">Summary</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="text-primary fs-6">{{$res.FirstName}} {{$res.LastName}}</label>
+            </div>
+            <div class="col">
+                <label class="text-primary fs-6">{{$res.Email}}</label>
+            </div>
+            <div class="col">
+                <label class="text-primary fs-6">Arrival</label>
+            </div>
+            <div class="col">
+                <label class="text-primary fs-6">Departure</label>
+            </div>
+        </div>
+    </div>
+{{end}}
