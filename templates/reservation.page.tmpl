@@ -3,14 +3,17 @@
 {{define "content"}}
 <div class="container">
     {{$res := index .Data "reservation"}}
-        <form action="/reservation" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="/reservation" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" >
+
             <div class="row">
                 <div class="col-6">
                     <label for="first_name" class="text-primary">First Name</label>
                     {{with .Form.Errors.Get "first_name"}}
                         <label class="text-danger">{{.}}</label>
                     {{end}}
-                    <input type="text" class='form-group {{with .Form.Errors.Get "first_name"}} is-danger {{end}}'
+                    <input id="first_name" type="text"
+                           class='form-group {{with .Form.Errors.Get "first_name"}} is-danger {{end}}'
                     value='{{$res.FirstName}}'>
                 </div>
                 <div class="col-6">
@@ -18,7 +21,8 @@
                     {{with .Form.Errors.Get "last_name"}}
                         <label class="text-danger">{{.}}</label>
                     {{end}}
-                    <input type="text" class='form-group {{with .Form.Errors.Get "last_name"}} is_danger {{end}}'
+                    <input id="last_name" type="text"
+                           class='form-group {{with .Form.Errors.Get "last_name"}} is_danger {{end}}'
                            value="{{$res.LastName}}">
                 </div>
             </div>
@@ -28,7 +32,7 @@
                     {{with .Form.Errors.Get "email"}}
                         <label class="text-danger">{{.}}</label>
                     {{end}}
-                    <input type="text" class='form-group {{with .Form.Errors.Get "email"}} is-danger {{end}}'
+                    <input id="email" type="text" class='form-group {{with .Form.Errors.Get "email"}} is-danger {{end}}'
                            value="{{$res.Email}}">
                 </div>
             </div>

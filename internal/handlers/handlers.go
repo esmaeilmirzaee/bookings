@@ -3,13 +3,14 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/esmaeilmirzaee/bookings/pkg/forms"
+	"github.com/esmaeilmirzaee/bookings/internal/forms"
+	"github.com/esmaeilmirzaee/bookings/internal/helpers"
 	"log"
 	"net/http"
 
-	"github.com/esmaeilmirzaee/bookings/pkg/config"
-	"github.com/esmaeilmirzaee/bookings/pkg/models"
-	"github.com/esmaeilmirzaee/bookings/pkg/renders"
+	"github.com/esmaeilmirzaee/bookings/internal/config"
+	"github.com/esmaeilmirzaee/bookings/internal/models"
+	"github.com/esmaeilmirzaee/bookings/internal/renders"
 )
 
 type Repository struct {
@@ -116,8 +117,9 @@ func (e *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	if err := r.ParseForm(); err != nil {
-		log.Println("Cannot parse form")
+	err := r.ParseMultipartForm(2048*16)
+	if err != nil {
+		helpers.ServerError(w, err)
 		return
 	}
 
@@ -155,7 +157,7 @@ func (e *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	reservation, ok := e.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	log.Println("session", reservation, ok)
 	if !ok {
-		log.Println("Cannot get reservation")
+		e.App.ErrorLog.Println("Can't get error from session")
 		e.App.Session.Put(r.Context(), "error", "Cannot get reservation")
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
