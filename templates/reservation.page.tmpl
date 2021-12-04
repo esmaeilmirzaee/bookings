@@ -1,5 +1,35 @@
 {{template "base" .}}
 
 {{define "content"}}
-
+<div class="container">
+    {{$res := index .Data "reservation"}}
+        <form action="/reservation">
+            <div class="row">
+                <div class="col-6">
+                    <label for="first_name" class="text-primary">First Name</label>
+                    {{with .Form.Errors.Get "first_name"}}
+                    <label for="" class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class="form-group {{with .Form.Errors.Get "first_name"}} is_danger {{end}}"
+                    value="{{}}">
+                </div>
+                <div class="col-6">
+                    <label for="last_name" class="text-primary">Last Name</label>
+                    {{with .Form.Errors.Get "last_name"}}
+                    <label for="last_name" class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class="form-group {{with .Form.Errors.Get "last_name"}} is_danger {{end}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="email" class="text-primary">Email</label>
+                    {{with .Form.Errors.Get "email"}}
+                        <label for="" class="text-danger">{{.}}</label>
+                    {{end}}
+                    <input type="text" class="form-group {{with .Form.Errors.Get "email"}} is-danger {{end}}">
+                </div>
+            </div>
+        </form>
+</div>
 {{end}}

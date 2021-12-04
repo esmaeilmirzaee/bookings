@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/esmaeilmirzaee/bookings/pkg/forms"
+	"log"
 	"net/http"
 
 	"github.com/esmaeilmirzaee/bookings/pkg/config"
@@ -74,5 +75,67 @@ func (e *Repository) RoomPageHandler(w http.ResponseWriter, r *http.Request) {
 
 // PostRoomPageHandler reserves a room for logged in user
 func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request) {
+	err:=r.ParseForm()
+	if err !=nil {
+		log.Println(err)
+		return
+	}
+
+	reservation:= models.ReservationForm{
+		 FirstName: r.FormValue("first_name"),
+		 LastName: r.FormValue("last_name"),
+		 Phone: r.FormValue("phone"),
+		 Email: r.FormValue("email"),
+	}
+
+	form := forms.New(r.PostForm)
+
+	form.Has("first_name", r)
+
+	if !form.Valid() {
+		data:=make(map[string]interface{})
+		data["reservation"] = reservation
+
+		renders.RenderTemplate(w, r, "rooms.page.tmpl", &models.TemplateData{
+			Form: form,
+			Data: data,
+		})
+
+		return
+	}
+}
+
+func (e *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	renders.RenderTemplate(w,r, "reservation.page.tmpl", &models.TemplateData{})
+}
+
+func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		log.Println("Cannot parse form")
+		return
+	}
+
+	reservation := models.ReservationForm{
+		FirstName: r.FormValue("first_name"),
+		LastName: r.FormValue("last_name"),
+		Email: r.FormValue("email"),
+	}
+
+	form := forms.New(r.PostForm)
+	form.Required("first_name", "last_name", "email")
+	form.CheckLength("first_name", 3, 50, r)
+	form.IsEmail("email")
+
+	if !form.Valid() {
+		data := make(map[string]interface{})
+		data["reservation"] = reservation
+
+		renders.RenderTemplate(w, r, "reservation.page.tmpl", &models.TemplateData{
+			Data: data,
+			Form: form,
+		})
+
+		return
+	}
 
 }
