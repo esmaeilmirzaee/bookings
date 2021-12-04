@@ -2,15 +2,17 @@ package main
 
 import (
 	"encoding/gob"
-	"github.com/esmaeilmirzaee/bookings/pkg/handlers"
-	"github.com/esmaeilmirzaee/bookings/pkg/models"
+	"github.com/esmaeilmirzaee/bookings/internal/handlers"
+	"github.com/esmaeilmirzaee/bookings/internal/helpers"
+	"github.com/esmaeilmirzaee/bookings/internal/models"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/esmaeilmirzaee/bookings/pkg/config"
-	"github.com/esmaeilmirzaee/bookings/pkg/renders"
+	"github.com/esmaeilmirzaee/bookings/internal/config"
+	"github.com/esmaeilmirzaee/bookings/internal/renders"
 )
 
 const portNumber = ":8080"
@@ -56,9 +58,15 @@ func run() error {
 	}
 
 	app.TemplateCache = tc
+
+	// Set loggers
+	app.InfoLog = log.New(os.Stdout, "Info\t", log.Ldate|log.Ltime)
+	app.ErrorLog  = log.New(os.Stderr, "Error\t\t", log.Ldate|log.Ltime|log.Lshortfile)
+
 	repo := handlers.NewRepository(&app)
 	handlers.NewHandlers(repo)
 	renders.NewTemplate(&app)
+	helpers.NewHelpers(&app)
 
 	return nil
 }

@@ -1,6 +1,6 @@
 package models
 
-import "github.com/esmaeilmirzaee/bookings/pkg/forms"
+import "github.com/esmaeilmirzaee/bookings/internal/forms"
 
 type TemplateData struct {
 	StringMap map[string]string
