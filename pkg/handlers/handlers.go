@@ -96,7 +96,7 @@ func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request)
 		data:=make(map[string]interface{})
 		data["reservation"] = reservation
 
-		renders.RenderTemplate(w, r, "rooms.page.tmpl", &models.TemplateData{
+		renders.RenderTemplate(w, r, "reservation.page.tmpl", &models.TemplateData{
 			Form: form,
 			Data: data,
 		})
@@ -106,7 +106,13 @@ func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request)
 }
 
 func (e *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	renders.RenderTemplate(w,r, "reservation.page.tmpl", &models.TemplateData{})
+	data := make(map[string]interface{})
+	data["reservation"] = models.ReservationForm{}
+
+	renders.RenderTemplate(w,r, "reservation.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+		Data: data,
+	})
 }
 
 func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
@@ -122,8 +128,9 @@ func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	}
 
 	form := forms.New(r.PostForm)
+	log.Println(form.Get("first_name"), reservation.FirstName, "->", r.MultipartForm)
 	form.Required("first_name", "last_name", "email")
-	form.CheckLength("first_name", 3, 50, r)
+	form.CheckLength( 3, 50, r,"first_name", "last_name")
 	form.IsEmail("email")
 
 	if !form.Valid() {
@@ -138,4 +145,13 @@ func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Println("Everything is OK")
+	e.App.Session.Put(r.Context(), "reservation", reservation)
+	http.Redirect(w, r, "/reservation-summary", http.StatusSeeOther)
+}
+
+// ReservationSummary see details of reservation
+func (e *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
+
+	renders.RenderTemplate(w, r, "reservation-summary.page.tmpl", &models.TemplateData{})
 }

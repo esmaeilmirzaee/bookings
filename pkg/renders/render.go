@@ -35,7 +35,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, templateName string,
 
 	t, ok := tc[templateName]
 	if !ok {
-		log.Fatal("Cannot read template")
+		log.Fatal("Cannot read template", tc[templateName])
 	}
 
 	buf := new(bytes.Buffer)
@@ -65,7 +65,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 
 		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
-			log.Fatal("Could not parse templates")
+			log.Fatal("Could not parse templates", page)
 		}
 
 		matches, err := filepath.Glob("./templates/*.layout.tmpl")

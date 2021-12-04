@@ -1,6 +1,8 @@
 package main
 
 import (
+	"encoding/gob"
+	"github.com/esmaeilmirzaee/bookings/pkg/models"
 	"log"
 	"net/http"
 	"time"
@@ -16,6 +18,9 @@ var app config.AppConfig
 var session *scs.SessionManager
 
 func main() {
+	// Data to store in session
+	gob.Register(models.ReservationForm{})
+
 	// Alter the following to true in production model
 	app.IsProduction = false
 

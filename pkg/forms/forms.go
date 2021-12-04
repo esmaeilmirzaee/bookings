@@ -24,7 +24,7 @@ func New(data url.Values) *Form {
 
 // Has checks if a field in the form has value
 func (f *Form)Has(field string, r *http.Request) bool {
-	x := r.Form.Get(field)
+	x := r.FormValue(field)
 	if x == "" {
 		f.Errors.Add(field, "This field is required.")
 		return false
@@ -46,11 +46,13 @@ func (f *Form) Required(fields ...string) {
 	}
 }
 
-func (f *Form) CheckLength(field string, min int, max int, r *http.Request) bool {
-	x := r.FormValue(field)
-	if len(x) > min && len(x) <= max {
-		f.Errors.Add(field, fmt.Sprintf("%+v requries at least %+d and at most %+d characters.", field, min, max))
-		return false
+func (f *Form) CheckLength(min int, max int, r *http.Request, fields ...string) bool {
+	for _, field := range fields {
+		x := r.FormValue(field)
+		if len(x) > min && len(x) <= max {
+			f.Errors.Add(field, fmt.Sprintf("%+v requries at least %+d and at most %+d characters.", field, min, max))
+			return false
+		}
 	}
 
 	return true
