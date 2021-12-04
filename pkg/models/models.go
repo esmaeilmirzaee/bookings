@@ -1,6 +1,6 @@
 package models
 
-type ReservationForm struct {
+type Reservation struct {
 	FirstName string
 	LastName string
 	Phone string

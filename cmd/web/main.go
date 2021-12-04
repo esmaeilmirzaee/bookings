@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/gob"
+	"github.com/esmaeilmirzaee/bookings/pkg/handlers"
 	"github.com/esmaeilmirzaee/bookings/pkg/models"
 	"log"
 	"net/http"
@@ -18,8 +19,23 @@ var app config.AppConfig
 var session *scs.SessionManager
 
 func main() {
+	if err := run(); err != nil {
+		log.Fatal(err)
+	}
+
+	srv := http.Server{
+		Addr:    portNumber,
+		Handler: routes(&app),
+	}
+	log.Println("App is running on" + portNumber)
+	if err := srv.ListenAndServe(); err != nil {
+		log.Fatal(err)
+	}
+}
+
+func run() error {
 	// Data to store in session
-	gob.Register(models.ReservationForm{})
+	gob.Register(models.Reservation{})
 
 	// Alter the following to true in production model
 	app.IsProduction = false
@@ -36,15 +52,13 @@ func main() {
 	tc, err := renders.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("Cannot create template cache")
+		return err
 	}
 
 	app.TemplateCache = tc
+	repo := handlers.NewRepository(&app)
+	handlers.NewHandlers(repo)
 	renders.NewTemplate(&app)
 
-	srv := http.Server{
-		Addr:    portNumber,
-		Handler: routes(&app),
-	}
-	log.Println("App is running on" + portNumber)
-	srv.ListenAndServe()
+	return nil
 }

@@ -11,6 +11,9 @@ import (
 func routes(app *config.AppConfig) http.Handler {
 	mux := chi.NewMux()
 
+	mux.Use(NoSurf)
+	mux.Use(SessionLoad)
+
 	mux.Get("/", handlers.Repo.HomePageHandler)
 	mux.Get("/login", handlers.Repo.LoginPageHandler)
 	mux.Post("/login", handlers.Repo.PostLoginPageHandler)

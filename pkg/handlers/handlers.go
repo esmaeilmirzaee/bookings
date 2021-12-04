@@ -81,7 +81,7 @@ func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	reservation:= models.ReservationForm{
+	reservation:= models.Reservation{
 		 FirstName: r.FormValue("first_name"),
 		 LastName: r.FormValue("last_name"),
 		 Phone: r.FormValue("phone"),
@@ -107,7 +107,7 @@ func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request)
 
 func (e *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	data := make(map[string]interface{})
-	data["reservation"] = models.ReservationForm{}
+	data["reservation"] = models.Reservation{}
 
 	renders.RenderTemplate(w,r, "reservation.page.tmpl", &models.TemplateData{
 		Form: forms.New(nil),
@@ -121,7 +121,7 @@ func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	reservation := models.ReservationForm{
+	reservation := models.Reservation{
 		FirstName: r.FormValue("first_name"),
 		LastName: r.FormValue("last_name"),
 		Email: r.FormValue("email"),
@@ -152,7 +152,8 @@ func (e *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 // ReservationSummary see details of reservation
 func (e *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
-	reservation, ok := e.App.Session.Get(r.Context(), "reservation").(models.ReservationForm)
+	reservation, ok := e.App.Session.Get(r.Context(), "reservation").(models.Reservation)
+	log.Println("session", reservation, ok)
 	if !ok {
 		log.Println("Cannot get reservation")
 		e.App.Session.Put(r.Context(), "error", "Cannot get reservation")
