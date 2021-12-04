@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/esmaeilmirzaee/bookings/pkg/forms"
 	"net/http"
 
 	"github.com/esmaeilmirzaee/bookings/pkg/config"
@@ -66,5 +67,12 @@ func (e *Repository) SignupPageHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (e *Repository) RoomPageHandler(w http.ResponseWriter, r *http.Request) {
-	renders.RenderTemplate(w, r, "rooms.page.tmpl", &models.TemplateData{})
+	renders.RenderTemplate(w, r, "rooms.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+	})
+}
+
+// PostRoomPageHandler reserves a room for logged in user
+func (e *Repository) PostRoomPageHandler(w http.ResponseWriter, r *http.Request) {
+
 }
