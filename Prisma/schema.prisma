@@ -7,7 +7,7 @@ generator db {
     provider = "go run github.com/prisma/prisma-client-go"
 }
 
-model Users {
+model User {
     id  String  @id @default(uuid())
     firstName   String
     lastName    String
@@ -16,4 +16,11 @@ model Users {
     accessLevel Int @default(1)
     createdAt   DateTime @default(now())
     updatedAt   DateTime    @updatedAt
+}
+
+model Room {
+    id String @id @default(uuid())
+    roomName String
+    createdAt DateTime  @default(now())
+    updatedAt DateTime @updatedAt
 }

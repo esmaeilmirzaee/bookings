@@ -1,4 +1,4 @@
-package renders
+package renderer
 
 import (
 	"bytes"
@@ -28,7 +28,7 @@ func DefaultTemplate(td *models.TemplateData, r *http.Request) *models.TemplateD
 	return td
 }
 
-func RenderTemplate(w http.ResponseWriter, r *http.Request, templateName string, td *models.TemplateData) {
+func Template(w http.ResponseWriter, r *http.Request, templateName string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {

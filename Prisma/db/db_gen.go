@@ -52,12 +52,12 @@ var countOutput = []builder.Output{
 	{Name: "count"},
 }
 
-type usersActions struct {
+type userActions struct {
 	// client holds the prisma client
 	client *PrismaClient
 }
 
-var usersOutput = []builder.Output{
+var userOutput = []builder.Output{
 	{Name: "id"},
 	{Name: "firstName"},
 	{Name: "lastName"},
@@ -68,813 +68,1301 @@ var usersOutput = []builder.Output{
 	{Name: "updatedAt"},
 }
 
-type iUsersRelationWith interface {
+type iUserRelationWith interface {
 	getQuery() builder.Query
 	with()
-	usersRelation()
+	userRelation()
 }
 
-type UsersWhereParam interface {
+type UserWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 }
 
-type usersDefaultParam struct {
+type userDefaultParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersDefaultParam) field() builder.Field {
+func (p userDefaultParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersDefaultParam) getQuery() builder.Query {
+func (p userDefaultParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersDefaultParam) usersModel() {}
+func (p userDefaultParam) userModel() {}
 
-type iUsersOrderByParam interface {
+type iUserOrderByParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 }
 
-type usersOrderByParam struct {
+type userOrderByParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersOrderByParam) field() builder.Field {
+func (p userOrderByParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersOrderByParam) getQuery() builder.Query {
+func (p userOrderByParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersOrderByParam) usersModel() {}
+func (p userOrderByParam) userModel() {}
 
-type iUsersCursorParam interface {
+type iUserCursorParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	isCursor()
 }
 
-type usersCursorParam struct {
+type userCursorParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersCursorParam) field() builder.Field {
+func (p userCursorParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersCursorParam) isCursor() {}
+func (p userCursorParam) isCursor() {}
 
-func (p usersCursorParam) getQuery() builder.Query {
+func (p userCursorParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersCursorParam) usersModel() {}
+func (p userCursorParam) userModel() {}
 
-type UsersParamUnique interface {
+type UserParamUnique interface {
 	field() builder.Field
 	getQuery() builder.Query
 	unique()
-	usersModel()
+	userModel()
 }
 
-type usersParamUnique struct {
+type userParamUnique struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersParamUnique) usersModel() {}
+func (p userParamUnique) userModel() {}
 
-func (usersParamUnique) unique() {}
+func (userParamUnique) unique() {}
 
-func (p usersParamUnique) field() builder.Field {
+func (p userParamUnique) field() builder.Field {
 	return p.data
 }
 
-func (p usersParamUnique) getQuery() builder.Query {
+func (p userParamUnique) getQuery() builder.Query {
 	return p.query
 }
 
-type UsersEqualsWhereParam interface {
+type UserEqualsWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 }
 
-type usersEqualsParam struct {
+type userEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersEqualsParam) usersModel() {}
+func (p userEqualsParam) userModel() {}
 
-func (usersEqualsParam) equals() {}
+func (userEqualsParam) equals() {}
 
-func (p usersEqualsParam) field() builder.Field {
+func (p userEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersEqualsParam) getQuery() builder.Query {
+func (p userEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-type UsersEqualsUniqueWhereParam interface {
+type UserEqualsUniqueWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
 	unique()
-	usersModel()
+	userModel()
 }
 
-type usersEqualsUniqueParam struct {
+type userEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersEqualsUniqueParam) usersModel() {}
+func (p userEqualsUniqueParam) userModel() {}
 
-func (usersEqualsUniqueParam) unique() {}
-func (usersEqualsUniqueParam) equals() {}
+func (userEqualsUniqueParam) unique() {}
+func (userEqualsUniqueParam) equals() {}
 
-func (p usersEqualsUniqueParam) field() builder.Field {
+func (p userEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersEqualsUniqueParam) getQuery() builder.Query {
+func (p userEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-type UsersSetParam interface {
+type UserSetParam interface {
 	field() builder.Field
 	settable()
-	usersModel()
+	userModel()
 }
 
-type usersSetParam struct {
+type userSetParam struct {
 	data builder.Field
 }
 
-func (usersSetParam) settable() {}
+func (userSetParam) settable() {}
 
-func (p usersSetParam) field() builder.Field {
+func (p userSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersSetParam) usersModel() {}
+func (p userSetParam) userModel() {}
 
-type UsersWithPrismaIDEqualsSetParam interface {
+type UserWithPrismaIDEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	idField()
 }
 
-type UsersWithPrismaIDSetParam interface {
+type UserWithPrismaIDSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	idField()
 }
 
-type usersWithPrismaIDSetParam struct {
+type userWithPrismaIDSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaIDSetParam) field() builder.Field {
+func (p userWithPrismaIDSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaIDSetParam) getQuery() builder.Query {
+func (p userWithPrismaIDSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaIDSetParam) usersModel() {}
+func (p userWithPrismaIDSetParam) userModel() {}
 
-func (p usersWithPrismaIDSetParam) idField() {}
+func (p userWithPrismaIDSetParam) idField() {}
 
-type UsersWithPrismaIDWhereParam interface {
+type UserWithPrismaIDWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	idField()
 }
 
-type usersWithPrismaIDEqualsParam struct {
+type userWithPrismaIDEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaIDEqualsParam) field() builder.Field {
+func (p userWithPrismaIDEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaIDEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaIDEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaIDEqualsParam) usersModel() {}
+func (p userWithPrismaIDEqualsParam) userModel() {}
 
-func (p usersWithPrismaIDEqualsParam) idField() {}
+func (p userWithPrismaIDEqualsParam) idField() {}
 
-func (usersWithPrismaIDSetParam) settable()  {}
-func (usersWithPrismaIDEqualsParam) equals() {}
+func (userWithPrismaIDSetParam) settable()  {}
+func (userWithPrismaIDEqualsParam) equals() {}
 
-type usersWithPrismaIDEqualsUniqueParam struct {
+type userWithPrismaIDEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaIDEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaIDEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaIDEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaIDEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaIDEqualsUniqueParam) usersModel() {}
-func (p usersWithPrismaIDEqualsUniqueParam) idField()    {}
+func (p userWithPrismaIDEqualsUniqueParam) userModel() {}
+func (p userWithPrismaIDEqualsUniqueParam) idField()   {}
 
-func (usersWithPrismaIDEqualsUniqueParam) unique() {}
-func (usersWithPrismaIDEqualsUniqueParam) equals() {}
+func (userWithPrismaIDEqualsUniqueParam) unique() {}
+func (userWithPrismaIDEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaFirstNameEqualsSetParam interface {
+type UserWithPrismaFirstNameEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	firstNameField()
 }
 
-type UsersWithPrismaFirstNameSetParam interface {
+type UserWithPrismaFirstNameSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	firstNameField()
 }
 
-type usersWithPrismaFirstNameSetParam struct {
+type userWithPrismaFirstNameSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaFirstNameSetParam) field() builder.Field {
+func (p userWithPrismaFirstNameSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaFirstNameSetParam) getQuery() builder.Query {
+func (p userWithPrismaFirstNameSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaFirstNameSetParam) usersModel() {}
+func (p userWithPrismaFirstNameSetParam) userModel() {}
 
-func (p usersWithPrismaFirstNameSetParam) firstNameField() {}
+func (p userWithPrismaFirstNameSetParam) firstNameField() {}
 
-type UsersWithPrismaFirstNameWhereParam interface {
+type UserWithPrismaFirstNameWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	firstNameField()
 }
 
-type usersWithPrismaFirstNameEqualsParam struct {
+type userWithPrismaFirstNameEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaFirstNameEqualsParam) field() builder.Field {
+func (p userWithPrismaFirstNameEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaFirstNameEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaFirstNameEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaFirstNameEqualsParam) usersModel() {}
+func (p userWithPrismaFirstNameEqualsParam) userModel() {}
 
-func (p usersWithPrismaFirstNameEqualsParam) firstNameField() {}
+func (p userWithPrismaFirstNameEqualsParam) firstNameField() {}
 
-func (usersWithPrismaFirstNameSetParam) settable()  {}
-func (usersWithPrismaFirstNameEqualsParam) equals() {}
+func (userWithPrismaFirstNameSetParam) settable()  {}
+func (userWithPrismaFirstNameEqualsParam) equals() {}
 
-type usersWithPrismaFirstNameEqualsUniqueParam struct {
+type userWithPrismaFirstNameEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaFirstNameEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaFirstNameEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaFirstNameEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaFirstNameEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaFirstNameEqualsUniqueParam) usersModel()     {}
-func (p usersWithPrismaFirstNameEqualsUniqueParam) firstNameField() {}
+func (p userWithPrismaFirstNameEqualsUniqueParam) userModel()      {}
+func (p userWithPrismaFirstNameEqualsUniqueParam) firstNameField() {}
 
-func (usersWithPrismaFirstNameEqualsUniqueParam) unique() {}
-func (usersWithPrismaFirstNameEqualsUniqueParam) equals() {}
+func (userWithPrismaFirstNameEqualsUniqueParam) unique() {}
+func (userWithPrismaFirstNameEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaLastNameEqualsSetParam interface {
+type UserWithPrismaLastNameEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	lastNameField()
 }
 
-type UsersWithPrismaLastNameSetParam interface {
+type UserWithPrismaLastNameSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	lastNameField()
 }
 
-type usersWithPrismaLastNameSetParam struct {
+type userWithPrismaLastNameSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaLastNameSetParam) field() builder.Field {
+func (p userWithPrismaLastNameSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaLastNameSetParam) getQuery() builder.Query {
+func (p userWithPrismaLastNameSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaLastNameSetParam) usersModel() {}
+func (p userWithPrismaLastNameSetParam) userModel() {}
 
-func (p usersWithPrismaLastNameSetParam) lastNameField() {}
+func (p userWithPrismaLastNameSetParam) lastNameField() {}
 
-type UsersWithPrismaLastNameWhereParam interface {
+type UserWithPrismaLastNameWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	lastNameField()
 }
 
-type usersWithPrismaLastNameEqualsParam struct {
+type userWithPrismaLastNameEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaLastNameEqualsParam) field() builder.Field {
+func (p userWithPrismaLastNameEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaLastNameEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaLastNameEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaLastNameEqualsParam) usersModel() {}
+func (p userWithPrismaLastNameEqualsParam) userModel() {}
 
-func (p usersWithPrismaLastNameEqualsParam) lastNameField() {}
+func (p userWithPrismaLastNameEqualsParam) lastNameField() {}
 
-func (usersWithPrismaLastNameSetParam) settable()  {}
-func (usersWithPrismaLastNameEqualsParam) equals() {}
+func (userWithPrismaLastNameSetParam) settable()  {}
+func (userWithPrismaLastNameEqualsParam) equals() {}
 
-type usersWithPrismaLastNameEqualsUniqueParam struct {
+type userWithPrismaLastNameEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaLastNameEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaLastNameEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaLastNameEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaLastNameEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaLastNameEqualsUniqueParam) usersModel()    {}
-func (p usersWithPrismaLastNameEqualsUniqueParam) lastNameField() {}
+func (p userWithPrismaLastNameEqualsUniqueParam) userModel()     {}
+func (p userWithPrismaLastNameEqualsUniqueParam) lastNameField() {}
 
-func (usersWithPrismaLastNameEqualsUniqueParam) unique() {}
-func (usersWithPrismaLastNameEqualsUniqueParam) equals() {}
+func (userWithPrismaLastNameEqualsUniqueParam) unique() {}
+func (userWithPrismaLastNameEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaEmailEqualsSetParam interface {
+type UserWithPrismaEmailEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	emailField()
 }
 
-type UsersWithPrismaEmailSetParam interface {
+type UserWithPrismaEmailSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	emailField()
 }
 
-type usersWithPrismaEmailSetParam struct {
+type userWithPrismaEmailSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaEmailSetParam) field() builder.Field {
+func (p userWithPrismaEmailSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaEmailSetParam) getQuery() builder.Query {
+func (p userWithPrismaEmailSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaEmailSetParam) usersModel() {}
+func (p userWithPrismaEmailSetParam) userModel() {}
 
-func (p usersWithPrismaEmailSetParam) emailField() {}
+func (p userWithPrismaEmailSetParam) emailField() {}
 
-type UsersWithPrismaEmailWhereParam interface {
+type UserWithPrismaEmailWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	emailField()
 }
 
-type usersWithPrismaEmailEqualsParam struct {
+type userWithPrismaEmailEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaEmailEqualsParam) field() builder.Field {
+func (p userWithPrismaEmailEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaEmailEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaEmailEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaEmailEqualsParam) usersModel() {}
+func (p userWithPrismaEmailEqualsParam) userModel() {}
 
-func (p usersWithPrismaEmailEqualsParam) emailField() {}
+func (p userWithPrismaEmailEqualsParam) emailField() {}
 
-func (usersWithPrismaEmailSetParam) settable()  {}
-func (usersWithPrismaEmailEqualsParam) equals() {}
+func (userWithPrismaEmailSetParam) settable()  {}
+func (userWithPrismaEmailEqualsParam) equals() {}
 
-type usersWithPrismaEmailEqualsUniqueParam struct {
+type userWithPrismaEmailEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaEmailEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaEmailEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaEmailEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaEmailEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaEmailEqualsUniqueParam) usersModel() {}
-func (p usersWithPrismaEmailEqualsUniqueParam) emailField() {}
+func (p userWithPrismaEmailEqualsUniqueParam) userModel()  {}
+func (p userWithPrismaEmailEqualsUniqueParam) emailField() {}
 
-func (usersWithPrismaEmailEqualsUniqueParam) unique() {}
-func (usersWithPrismaEmailEqualsUniqueParam) equals() {}
+func (userWithPrismaEmailEqualsUniqueParam) unique() {}
+func (userWithPrismaEmailEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaPasswordEqualsSetParam interface {
+type UserWithPrismaPasswordEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	passwordField()
 }
 
-type UsersWithPrismaPasswordSetParam interface {
+type UserWithPrismaPasswordSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	passwordField()
 }
 
-type usersWithPrismaPasswordSetParam struct {
+type userWithPrismaPasswordSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaPasswordSetParam) field() builder.Field {
+func (p userWithPrismaPasswordSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaPasswordSetParam) getQuery() builder.Query {
+func (p userWithPrismaPasswordSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaPasswordSetParam) usersModel() {}
+func (p userWithPrismaPasswordSetParam) userModel() {}
 
-func (p usersWithPrismaPasswordSetParam) passwordField() {}
+func (p userWithPrismaPasswordSetParam) passwordField() {}
 
-type UsersWithPrismaPasswordWhereParam interface {
+type UserWithPrismaPasswordWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	passwordField()
 }
 
-type usersWithPrismaPasswordEqualsParam struct {
+type userWithPrismaPasswordEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaPasswordEqualsParam) field() builder.Field {
+func (p userWithPrismaPasswordEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaPasswordEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaPasswordEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaPasswordEqualsParam) usersModel() {}
+func (p userWithPrismaPasswordEqualsParam) userModel() {}
 
-func (p usersWithPrismaPasswordEqualsParam) passwordField() {}
+func (p userWithPrismaPasswordEqualsParam) passwordField() {}
 
-func (usersWithPrismaPasswordSetParam) settable()  {}
-func (usersWithPrismaPasswordEqualsParam) equals() {}
+func (userWithPrismaPasswordSetParam) settable()  {}
+func (userWithPrismaPasswordEqualsParam) equals() {}
 
-type usersWithPrismaPasswordEqualsUniqueParam struct {
+type userWithPrismaPasswordEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaPasswordEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaPasswordEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaPasswordEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaPasswordEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaPasswordEqualsUniqueParam) usersModel()    {}
-func (p usersWithPrismaPasswordEqualsUniqueParam) passwordField() {}
+func (p userWithPrismaPasswordEqualsUniqueParam) userModel()     {}
+func (p userWithPrismaPasswordEqualsUniqueParam) passwordField() {}
 
-func (usersWithPrismaPasswordEqualsUniqueParam) unique() {}
-func (usersWithPrismaPasswordEqualsUniqueParam) equals() {}
+func (userWithPrismaPasswordEqualsUniqueParam) unique() {}
+func (userWithPrismaPasswordEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaAccessLevelEqualsSetParam interface {
+type UserWithPrismaAccessLevelEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	accessLevelField()
 }
 
-type UsersWithPrismaAccessLevelSetParam interface {
+type UserWithPrismaAccessLevelSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	accessLevelField()
 }
 
-type usersWithPrismaAccessLevelSetParam struct {
+type userWithPrismaAccessLevelSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaAccessLevelSetParam) field() builder.Field {
+func (p userWithPrismaAccessLevelSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaAccessLevelSetParam) getQuery() builder.Query {
+func (p userWithPrismaAccessLevelSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaAccessLevelSetParam) usersModel() {}
+func (p userWithPrismaAccessLevelSetParam) userModel() {}
 
-func (p usersWithPrismaAccessLevelSetParam) accessLevelField() {}
+func (p userWithPrismaAccessLevelSetParam) accessLevelField() {}
 
-type UsersWithPrismaAccessLevelWhereParam interface {
+type UserWithPrismaAccessLevelWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	accessLevelField()
 }
 
-type usersWithPrismaAccessLevelEqualsParam struct {
+type userWithPrismaAccessLevelEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaAccessLevelEqualsParam) field() builder.Field {
+func (p userWithPrismaAccessLevelEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaAccessLevelEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaAccessLevelEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaAccessLevelEqualsParam) usersModel() {}
+func (p userWithPrismaAccessLevelEqualsParam) userModel() {}
 
-func (p usersWithPrismaAccessLevelEqualsParam) accessLevelField() {}
+func (p userWithPrismaAccessLevelEqualsParam) accessLevelField() {}
 
-func (usersWithPrismaAccessLevelSetParam) settable()  {}
-func (usersWithPrismaAccessLevelEqualsParam) equals() {}
+func (userWithPrismaAccessLevelSetParam) settable()  {}
+func (userWithPrismaAccessLevelEqualsParam) equals() {}
 
-type usersWithPrismaAccessLevelEqualsUniqueParam struct {
+type userWithPrismaAccessLevelEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaAccessLevelEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaAccessLevelEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaAccessLevelEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaAccessLevelEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaAccessLevelEqualsUniqueParam) usersModel()       {}
-func (p usersWithPrismaAccessLevelEqualsUniqueParam) accessLevelField() {}
+func (p userWithPrismaAccessLevelEqualsUniqueParam) userModel()        {}
+func (p userWithPrismaAccessLevelEqualsUniqueParam) accessLevelField() {}
 
-func (usersWithPrismaAccessLevelEqualsUniqueParam) unique() {}
-func (usersWithPrismaAccessLevelEqualsUniqueParam) equals() {}
+func (userWithPrismaAccessLevelEqualsUniqueParam) unique() {}
+func (userWithPrismaAccessLevelEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaCreatedAtEqualsSetParam interface {
+type UserWithPrismaCreatedAtEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	createdAtField()
 }
 
-type UsersWithPrismaCreatedAtSetParam interface {
+type UserWithPrismaCreatedAtSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	createdAtField()
 }
 
-type usersWithPrismaCreatedAtSetParam struct {
+type userWithPrismaCreatedAtSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaCreatedAtSetParam) field() builder.Field {
+func (p userWithPrismaCreatedAtSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaCreatedAtSetParam) getQuery() builder.Query {
+func (p userWithPrismaCreatedAtSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaCreatedAtSetParam) usersModel() {}
+func (p userWithPrismaCreatedAtSetParam) userModel() {}
 
-func (p usersWithPrismaCreatedAtSetParam) createdAtField() {}
+func (p userWithPrismaCreatedAtSetParam) createdAtField() {}
 
-type UsersWithPrismaCreatedAtWhereParam interface {
+type UserWithPrismaCreatedAtWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	createdAtField()
 }
 
-type usersWithPrismaCreatedAtEqualsParam struct {
+type userWithPrismaCreatedAtEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaCreatedAtEqualsParam) field() builder.Field {
+func (p userWithPrismaCreatedAtEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaCreatedAtEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaCreatedAtEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaCreatedAtEqualsParam) usersModel() {}
+func (p userWithPrismaCreatedAtEqualsParam) userModel() {}
 
-func (p usersWithPrismaCreatedAtEqualsParam) createdAtField() {}
+func (p userWithPrismaCreatedAtEqualsParam) createdAtField() {}
 
-func (usersWithPrismaCreatedAtSetParam) settable()  {}
-func (usersWithPrismaCreatedAtEqualsParam) equals() {}
+func (userWithPrismaCreatedAtSetParam) settable()  {}
+func (userWithPrismaCreatedAtEqualsParam) equals() {}
 
-type usersWithPrismaCreatedAtEqualsUniqueParam struct {
+type userWithPrismaCreatedAtEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaCreatedAtEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaCreatedAtEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaCreatedAtEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaCreatedAtEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaCreatedAtEqualsUniqueParam) usersModel()     {}
-func (p usersWithPrismaCreatedAtEqualsUniqueParam) createdAtField() {}
+func (p userWithPrismaCreatedAtEqualsUniqueParam) userModel()      {}
+func (p userWithPrismaCreatedAtEqualsUniqueParam) createdAtField() {}
 
-func (usersWithPrismaCreatedAtEqualsUniqueParam) unique() {}
-func (usersWithPrismaCreatedAtEqualsUniqueParam) equals() {}
+func (userWithPrismaCreatedAtEqualsUniqueParam) unique() {}
+func (userWithPrismaCreatedAtEqualsUniqueParam) equals() {}
 
-type UsersWithPrismaUpdatedAtEqualsSetParam interface {
+type UserWithPrismaUpdatedAtEqualsSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	usersModel()
+	userModel()
 	updatedAtField()
 }
 
-type UsersWithPrismaUpdatedAtSetParam interface {
+type UserWithPrismaUpdatedAtSetParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	updatedAtField()
 }
 
-type usersWithPrismaUpdatedAtSetParam struct {
+type userWithPrismaUpdatedAtSetParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaUpdatedAtSetParam) field() builder.Field {
+func (p userWithPrismaUpdatedAtSetParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaUpdatedAtSetParam) getQuery() builder.Query {
+func (p userWithPrismaUpdatedAtSetParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaUpdatedAtSetParam) usersModel() {}
+func (p userWithPrismaUpdatedAtSetParam) userModel() {}
 
-func (p usersWithPrismaUpdatedAtSetParam) updatedAtField() {}
+func (p userWithPrismaUpdatedAtSetParam) updatedAtField() {}
 
-type UsersWithPrismaUpdatedAtWhereParam interface {
+type UserWithPrismaUpdatedAtWhereParam interface {
 	field() builder.Field
 	getQuery() builder.Query
-	usersModel()
+	userModel()
 	updatedAtField()
 }
 
-type usersWithPrismaUpdatedAtEqualsParam struct {
+type userWithPrismaUpdatedAtEqualsParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaUpdatedAtEqualsParam) field() builder.Field {
+func (p userWithPrismaUpdatedAtEqualsParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaUpdatedAtEqualsParam) getQuery() builder.Query {
+func (p userWithPrismaUpdatedAtEqualsParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaUpdatedAtEqualsParam) usersModel() {}
+func (p userWithPrismaUpdatedAtEqualsParam) userModel() {}
 
-func (p usersWithPrismaUpdatedAtEqualsParam) updatedAtField() {}
+func (p userWithPrismaUpdatedAtEqualsParam) updatedAtField() {}
 
-func (usersWithPrismaUpdatedAtSetParam) settable()  {}
-func (usersWithPrismaUpdatedAtEqualsParam) equals() {}
+func (userWithPrismaUpdatedAtSetParam) settable()  {}
+func (userWithPrismaUpdatedAtEqualsParam) equals() {}
 
-type usersWithPrismaUpdatedAtEqualsUniqueParam struct {
+type userWithPrismaUpdatedAtEqualsUniqueParam struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p usersWithPrismaUpdatedAtEqualsUniqueParam) field() builder.Field {
+func (p userWithPrismaUpdatedAtEqualsUniqueParam) field() builder.Field {
 	return p.data
 }
 
-func (p usersWithPrismaUpdatedAtEqualsUniqueParam) getQuery() builder.Query {
+func (p userWithPrismaUpdatedAtEqualsUniqueParam) getQuery() builder.Query {
 	return p.query
 }
 
-func (p usersWithPrismaUpdatedAtEqualsUniqueParam) usersModel()     {}
-func (p usersWithPrismaUpdatedAtEqualsUniqueParam) updatedAtField() {}
+func (p userWithPrismaUpdatedAtEqualsUniqueParam) userModel()      {}
+func (p userWithPrismaUpdatedAtEqualsUniqueParam) updatedAtField() {}
 
-func (usersWithPrismaUpdatedAtEqualsUniqueParam) unique() {}
-func (usersWithPrismaUpdatedAtEqualsUniqueParam) equals() {}
+func (userWithPrismaUpdatedAtEqualsUniqueParam) unique() {}
+func (userWithPrismaUpdatedAtEqualsUniqueParam) equals() {}
+
+type roomActions struct {
+	// client holds the prisma client
+	client *PrismaClient
+}
+
+var roomOutput = []builder.Output{
+	{Name: "id"},
+	{Name: "roomName"},
+	{Name: "createdAt"},
+	{Name: "updatedAt"},
+}
+
+type iRoomRelationWith interface {
+	getQuery() builder.Query
+	with()
+	roomRelation()
+}
+
+type RoomWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+}
+
+type roomDefaultParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomDefaultParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomDefaultParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomDefaultParam) roomModel() {}
+
+type iRoomOrderByParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+}
+
+type roomOrderByParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomOrderByParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomOrderByParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomOrderByParam) roomModel() {}
+
+type iRoomCursorParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	isCursor()
+}
+
+type roomCursorParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomCursorParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomCursorParam) isCursor() {}
+
+func (p roomCursorParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomCursorParam) roomModel() {}
+
+type RoomParamUnique interface {
+	field() builder.Field
+	getQuery() builder.Query
+	unique()
+	roomModel()
+}
+
+type roomParamUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomParamUnique) roomModel() {}
+
+func (roomParamUnique) unique() {}
+
+func (p roomParamUnique) field() builder.Field {
+	return p.data
+}
+
+func (p roomParamUnique) getQuery() builder.Query {
+	return p.query
+}
+
+type RoomEqualsWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	roomModel()
+}
+
+type roomEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomEqualsParam) roomModel() {}
+
+func (roomEqualsParam) equals() {}
+
+func (p roomEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+type RoomEqualsUniqueWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	unique()
+	roomModel()
+}
+
+type roomEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomEqualsUniqueParam) roomModel() {}
+
+func (roomEqualsUniqueParam) unique() {}
+func (roomEqualsUniqueParam) equals() {}
+
+func (p roomEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+type RoomSetParam interface {
+	field() builder.Field
+	settable()
+	roomModel()
+}
+
+type roomSetParam struct {
+	data builder.Field
+}
+
+func (roomSetParam) settable() {}
+
+func (p roomSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomSetParam) roomModel() {}
+
+type RoomWithPrismaIDEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	roomModel()
+	idField()
+}
+
+type RoomWithPrismaIDSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	idField()
+}
+
+type roomWithPrismaIDSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaIDSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaIDSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaIDSetParam) roomModel() {}
+
+func (p roomWithPrismaIDSetParam) idField() {}
+
+type RoomWithPrismaIDWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	idField()
+}
+
+type roomWithPrismaIDEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaIDEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaIDEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaIDEqualsParam) roomModel() {}
+
+func (p roomWithPrismaIDEqualsParam) idField() {}
+
+func (roomWithPrismaIDSetParam) settable()  {}
+func (roomWithPrismaIDEqualsParam) equals() {}
+
+type roomWithPrismaIDEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaIDEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaIDEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaIDEqualsUniqueParam) roomModel() {}
+func (p roomWithPrismaIDEqualsUniqueParam) idField()   {}
+
+func (roomWithPrismaIDEqualsUniqueParam) unique() {}
+func (roomWithPrismaIDEqualsUniqueParam) equals() {}
+
+type RoomWithPrismaRoomNameEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	roomModel()
+	roomNameField()
+}
+
+type RoomWithPrismaRoomNameSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	roomNameField()
+}
+
+type roomWithPrismaRoomNameSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaRoomNameSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaRoomNameSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaRoomNameSetParam) roomModel() {}
+
+func (p roomWithPrismaRoomNameSetParam) roomNameField() {}
+
+type RoomWithPrismaRoomNameWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	roomNameField()
+}
+
+type roomWithPrismaRoomNameEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaRoomNameEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaRoomNameEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaRoomNameEqualsParam) roomModel() {}
+
+func (p roomWithPrismaRoomNameEqualsParam) roomNameField() {}
+
+func (roomWithPrismaRoomNameSetParam) settable()  {}
+func (roomWithPrismaRoomNameEqualsParam) equals() {}
+
+type roomWithPrismaRoomNameEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaRoomNameEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaRoomNameEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaRoomNameEqualsUniqueParam) roomModel()     {}
+func (p roomWithPrismaRoomNameEqualsUniqueParam) roomNameField() {}
+
+func (roomWithPrismaRoomNameEqualsUniqueParam) unique() {}
+func (roomWithPrismaRoomNameEqualsUniqueParam) equals() {}
+
+type RoomWithPrismaCreatedAtEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	roomModel()
+	createdAtField()
+}
+
+type RoomWithPrismaCreatedAtSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	createdAtField()
+}
+
+type roomWithPrismaCreatedAtSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaCreatedAtSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaCreatedAtSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaCreatedAtSetParam) roomModel() {}
+
+func (p roomWithPrismaCreatedAtSetParam) createdAtField() {}
+
+type RoomWithPrismaCreatedAtWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	createdAtField()
+}
+
+type roomWithPrismaCreatedAtEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaCreatedAtEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaCreatedAtEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaCreatedAtEqualsParam) roomModel() {}
+
+func (p roomWithPrismaCreatedAtEqualsParam) createdAtField() {}
+
+func (roomWithPrismaCreatedAtSetParam) settable()  {}
+func (roomWithPrismaCreatedAtEqualsParam) equals() {}
+
+type roomWithPrismaCreatedAtEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaCreatedAtEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaCreatedAtEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaCreatedAtEqualsUniqueParam) roomModel()      {}
+func (p roomWithPrismaCreatedAtEqualsUniqueParam) createdAtField() {}
+
+func (roomWithPrismaCreatedAtEqualsUniqueParam) unique() {}
+func (roomWithPrismaCreatedAtEqualsUniqueParam) equals() {}
+
+type RoomWithPrismaUpdatedAtEqualsSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	roomModel()
+	updatedAtField()
+}
+
+type RoomWithPrismaUpdatedAtSetParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	updatedAtField()
+}
+
+type roomWithPrismaUpdatedAtSetParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaUpdatedAtSetParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaUpdatedAtSetParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaUpdatedAtSetParam) roomModel() {}
+
+func (p roomWithPrismaUpdatedAtSetParam) updatedAtField() {}
+
+type RoomWithPrismaUpdatedAtWhereParam interface {
+	field() builder.Field
+	getQuery() builder.Query
+	roomModel()
+	updatedAtField()
+}
+
+type roomWithPrismaUpdatedAtEqualsParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaUpdatedAtEqualsParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaUpdatedAtEqualsParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaUpdatedAtEqualsParam) roomModel() {}
+
+func (p roomWithPrismaUpdatedAtEqualsParam) updatedAtField() {}
+
+func (roomWithPrismaUpdatedAtSetParam) settable()  {}
+func (roomWithPrismaUpdatedAtEqualsParam) equals() {}
+
+type roomWithPrismaUpdatedAtEqualsUniqueParam struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p roomWithPrismaUpdatedAtEqualsUniqueParam) field() builder.Field {
+	return p.data
+}
+
+func (p roomWithPrismaUpdatedAtEqualsUniqueParam) getQuery() builder.Query {
+	return p.query
+}
+
+func (p roomWithPrismaUpdatedAtEqualsUniqueParam) roomModel()      {}
+func (p roomWithPrismaUpdatedAtEqualsUniqueParam) updatedAtField() {}
+
+func (roomWithPrismaUpdatedAtEqualsUniqueParam) unique() {}
+func (roomWithPrismaUpdatedAtEqualsUniqueParam) equals() {}
 
 // --- template create.gotpl ---
 
-// Creates a single users.
-func (r usersActions) CreateOne(
-	_firstName UsersWithPrismaFirstNameSetParam,
-	_lastName UsersWithPrismaLastNameSetParam,
-	_email UsersWithPrismaEmailSetParam,
-	_password UsersWithPrismaPasswordSetParam,
+// Creates a single user.
+func (r userActions) CreateOne(
+	_firstName UserWithPrismaFirstNameSetParam,
+	_lastName UserWithPrismaLastNameSetParam,
+	_email UserWithPrismaEmailSetParam,
+	_password UserWithPrismaPasswordSetParam,
 
-	optional ...UsersSetParam,
-) usersCreateOne {
-	var v usersCreateOne
+	optional ...UserSetParam,
+) userCreateOne {
+	var v userCreateOne
 	v.query = builder.NewQuery()
 	v.query.Engine = r.client
 
 	v.query.Operation = "mutation"
 	v.query.Method = "createOne"
-	v.query.Model = "Users"
-	v.query.Outputs = usersOutput
+	v.query.Model = "User"
+	v.query.Outputs = userOutput
 
 	var fields []builder.Field
 
@@ -894,7 +1382,7 @@ func (r usersActions) CreateOne(
 	return v
 }
 
-func (r usersCreateOne) With(params ...iUsersRelationWith) usersCreateOne {
+func (r userCreateOne) With(params ...iUserRelationWith) userCreateOne {
 	for _, q := range params {
 		query := q.getQuery()
 		r.query.Outputs = append(r.query.Outputs, builder.Output{
@@ -907,26 +1395,94 @@ func (r usersCreateOne) With(params ...iUsersRelationWith) usersCreateOne {
 	return r
 }
 
-type usersCreateOne struct {
+type userCreateOne struct {
 	query builder.Query
 }
 
-func (p usersCreateOne) ExtractQuery() builder.Query {
+func (p userCreateOne) ExtractQuery() builder.Query {
 	return p.query
 }
 
-func (p usersCreateOne) usersModel() {}
+func (p userCreateOne) userModel() {}
 
-func (r usersCreateOne) Exec(ctx context.Context) (*UsersModel, error) {
-	var v UsersModel
+func (r userCreateOne) Exec(ctx context.Context) (*UserModel, error) {
+	var v UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
 	return &v, nil
 }
 
-func (r usersCreateOne) Tx() usersUniqueTxResult {
-	v := NewusersUniqueTxResult()
+func (r userCreateOne) Tx() userUniqueTxResult {
+	v := NewuserUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+// Creates a single room.
+func (r roomActions) CreateOne(
+	_roomName RoomWithPrismaRoomNameSetParam,
+
+	optional ...RoomSetParam,
+) roomCreateOne {
+	var v roomCreateOne
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "mutation"
+	v.query.Method = "createOne"
+	v.query.Model = "Room"
+	v.query.Outputs = roomOutput
+
+	var fields []builder.Field
+
+	fields = append(fields, _roomName.field())
+
+	for _, q := range optional {
+		fields = append(fields, q.field())
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+func (r roomCreateOne) With(params ...iRoomRelationWith) roomCreateOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+type roomCreateOne struct {
+	query builder.Query
+}
+
+func (p roomCreateOne) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p roomCreateOne) roomModel() {}
+
+func (r roomCreateOne) Exec(ctx context.Context) (*RoomModel, error) {
+	var v RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomCreateOne) Tx() roomUniqueTxResult {
+	v := NewroomUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -934,26 +1490,26 @@ func (r usersCreateOne) Tx() usersUniqueTxResult {
 
 // --- template find.gotpl ---
 
-type usersFindUnique struct {
+type userFindUnique struct {
 	query builder.Query
 }
 
-func (r usersFindUnique) getQuery() builder.Query {
+func (r userFindUnique) getQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindUnique) ExtractQuery() builder.Query {
+func (r userFindUnique) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindUnique) with()          {}
-func (r usersFindUnique) usersModel()    {}
-func (r usersFindUnique) usersRelation() {}
+func (r userFindUnique) with()         {}
+func (r userFindUnique) userModel()    {}
+func (r userFindUnique) userRelation() {}
 
-func (r usersActions) FindUnique(
-	params UsersEqualsUniqueWhereParam,
-) usersFindUnique {
-	var v usersFindUnique
+func (r userActions) FindUnique(
+	params UserEqualsUniqueWhereParam,
+) userFindUnique {
+	var v userFindUnique
 	v.query = builder.NewQuery()
 	v.query.Engine = r.client
 
@@ -961,8 +1517,8 @@ func (r usersActions) FindUnique(
 
 	v.query.Method = "findUnique"
 
-	v.query.Model = "Users"
-	v.query.Outputs = usersOutput
+	v.query.Model = "User"
+	v.query.Outputs = userOutput
 
 	v.query.Inputs = append(v.query.Inputs, builder.Input{
 		Name:   "where",
@@ -972,7 +1528,7 @@ func (r usersActions) FindUnique(
 	return v
 }
 
-func (r usersFindUnique) With(params ...iUsersRelationWith) usersFindUnique {
+func (r userFindUnique) With(params ...iUserRelationWith) userFindUnique {
 	for _, q := range params {
 		query := q.getQuery()
 		r.query.Outputs = append(r.query.Outputs, builder.Output{
@@ -985,11 +1541,11 @@ func (r usersFindUnique) With(params ...iUsersRelationWith) usersFindUnique {
 	return r
 }
 
-func (r usersFindUnique) Exec(ctx context.Context) (
-	*UsersModel,
+func (r userFindUnique) Exec(ctx context.Context) (
+	*UserModel,
 	error,
 ) {
-	var v *UsersModel
+	var v *UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1001,11 +1557,11 @@ func (r usersFindUnique) Exec(ctx context.Context) (
 	return v, nil
 }
 
-func (r usersFindUnique) ExecInner(ctx context.Context) (
-	*InnerUsers,
+func (r userFindUnique) ExecInner(ctx context.Context) (
+	*InnerUser,
 	error,
 ) {
-	var v *InnerUsers
+	var v *InnerUser
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1017,12 +1573,12 @@ func (r usersFindUnique) ExecInner(ctx context.Context) (
 	return v, nil
 }
 
-func (r usersFindUnique) Update(params ...UsersSetParam) usersUpdateUnique {
+func (r userFindUnique) Update(params ...UserSetParam) userUpdateUnique {
 	r.query.Operation = "mutation"
 	r.query.Method = "updateOne"
-	r.query.Model = "Users"
+	r.query.Model = "User"
 
-	var v usersUpdateUnique
+	var v userUpdateUnique
 	v.query = r.query
 	var fields []builder.Field
 	for _, q := range params {
@@ -1051,86 +1607,86 @@ func (r usersFindUnique) Update(params ...UsersSetParam) usersUpdateUnique {
 	return v
 }
 
-type usersUpdateUnique struct {
+type userUpdateUnique struct {
 	query builder.Query
 }
 
-func (r usersUpdateUnique) ExtractQuery() builder.Query {
+func (r userUpdateUnique) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersUpdateUnique) usersModel() {}
+func (r userUpdateUnique) userModel() {}
 
-func (r usersUpdateUnique) Exec(ctx context.Context) (*UsersModel, error) {
-	var v UsersModel
+func (r userUpdateUnique) Exec(ctx context.Context) (*UserModel, error) {
+	var v UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
 	return &v, nil
 }
 
-func (r usersUpdateUnique) Tx() usersUniqueTxResult {
-	v := NewusersUniqueTxResult()
+func (r userUpdateUnique) Tx() userUniqueTxResult {
+	v := NewuserUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
 }
 
-func (r usersFindUnique) Delete() usersDeleteUnique {
-	var v usersDeleteUnique
+func (r userFindUnique) Delete() userDeleteUnique {
+	var v userDeleteUnique
 	v.query = r.query
 	v.query.Operation = "mutation"
 	v.query.Method = "deleteOne"
-	v.query.Model = "Users"
+	v.query.Model = "User"
 
 	return v
 }
 
-type usersDeleteUnique struct {
+type userDeleteUnique struct {
 	query builder.Query
 }
 
-func (r usersDeleteUnique) ExtractQuery() builder.Query {
+func (r userDeleteUnique) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (p usersDeleteUnique) usersModel() {}
+func (p userDeleteUnique) userModel() {}
 
-func (r usersDeleteUnique) Exec(ctx context.Context) (*UsersModel, error) {
-	var v UsersModel
+func (r userDeleteUnique) Exec(ctx context.Context) (*UserModel, error) {
+	var v UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
 	return &v, nil
 }
 
-func (r usersDeleteUnique) Tx() usersUniqueTxResult {
-	v := NewusersUniqueTxResult()
+func (r userDeleteUnique) Tx() userUniqueTxResult {
+	v := NewuserUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
 }
 
-type usersFindFirst struct {
+type userFindFirst struct {
 	query builder.Query
 }
 
-func (r usersFindFirst) getQuery() builder.Query {
+func (r userFindFirst) getQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindFirst) ExtractQuery() builder.Query {
+func (r userFindFirst) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindFirst) with()          {}
-func (r usersFindFirst) usersModel()    {}
-func (r usersFindFirst) usersRelation() {}
+func (r userFindFirst) with()         {}
+func (r userFindFirst) userModel()    {}
+func (r userFindFirst) userRelation() {}
 
-func (r usersActions) FindFirst(
-	params ...UsersWhereParam,
-) usersFindFirst {
-	var v usersFindFirst
+func (r userActions) FindFirst(
+	params ...UserWhereParam,
+) userFindFirst {
+	var v userFindFirst
 	v.query = builder.NewQuery()
 	v.query.Engine = r.client
 
@@ -1138,8 +1694,8 @@ func (r usersActions) FindFirst(
 
 	v.query.Method = "findFirst"
 
-	v.query.Model = "Users"
-	v.query.Outputs = usersOutput
+	v.query.Model = "User"
+	v.query.Outputs = userOutput
 
 	var where []builder.Field
 	for _, q := range params {
@@ -1171,7 +1727,7 @@ func (r usersActions) FindFirst(
 	return v
 }
 
-func (r usersFindFirst) With(params ...iUsersRelationWith) usersFindFirst {
+func (r userFindFirst) With(params ...iUserRelationWith) userFindFirst {
 	for _, q := range params {
 		query := q.getQuery()
 		r.query.Outputs = append(r.query.Outputs, builder.Output{
@@ -1184,7 +1740,7 @@ func (r usersFindFirst) With(params ...iUsersRelationWith) usersFindFirst {
 	return r
 }
 
-func (r usersFindFirst) OrderBy(params ...iUsersOrderByParam) usersFindFirst {
+func (r userFindFirst) OrderBy(params ...iUserOrderByParam) userFindFirst {
 	var fields []builder.Field
 
 	for _, param := range params {
@@ -1204,7 +1760,7 @@ func (r usersFindFirst) OrderBy(params ...iUsersOrderByParam) usersFindFirst {
 	return r
 }
 
-func (r usersFindFirst) Skip(count int) usersFindFirst {
+func (r userFindFirst) Skip(count int) userFindFirst {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:  "skip",
 		Value: count,
@@ -1212,7 +1768,7 @@ func (r usersFindFirst) Skip(count int) usersFindFirst {
 	return r
 }
 
-func (r usersFindFirst) Take(count int) usersFindFirst {
+func (r userFindFirst) Take(count int) userFindFirst {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:  "take",
 		Value: count,
@@ -1220,7 +1776,7 @@ func (r usersFindFirst) Take(count int) usersFindFirst {
 	return r
 }
 
-func (r usersFindFirst) Cursor(cursor iUsersCursorParam) usersFindFirst {
+func (r userFindFirst) Cursor(cursor iUserCursorParam) userFindFirst {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:   "cursor",
 		Fields: []builder.Field{cursor.field()},
@@ -1228,11 +1784,11 @@ func (r usersFindFirst) Cursor(cursor iUsersCursorParam) usersFindFirst {
 	return r
 }
 
-func (r usersFindFirst) Exec(ctx context.Context) (
-	*UsersModel,
+func (r userFindFirst) Exec(ctx context.Context) (
+	*UserModel,
 	error,
 ) {
-	var v *UsersModel
+	var v *UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1244,11 +1800,11 @@ func (r usersFindFirst) Exec(ctx context.Context) (
 	return v, nil
 }
 
-func (r usersFindFirst) ExecInner(ctx context.Context) (
-	*InnerUsers,
+func (r userFindFirst) ExecInner(ctx context.Context) (
+	*InnerUser,
 	error,
 ) {
-	var v *InnerUsers
+	var v *InnerUser
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1260,26 +1816,26 @@ func (r usersFindFirst) ExecInner(ctx context.Context) (
 	return v, nil
 }
 
-type usersFindMany struct {
+type userFindMany struct {
 	query builder.Query
 }
 
-func (r usersFindMany) getQuery() builder.Query {
+func (r userFindMany) getQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindMany) ExtractQuery() builder.Query {
+func (r userFindMany) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersFindMany) with()          {}
-func (r usersFindMany) usersModel()    {}
-func (r usersFindMany) usersRelation() {}
+func (r userFindMany) with()         {}
+func (r userFindMany) userModel()    {}
+func (r userFindMany) userRelation() {}
 
-func (r usersActions) FindMany(
-	params ...UsersWhereParam,
-) usersFindMany {
-	var v usersFindMany
+func (r userActions) FindMany(
+	params ...UserWhereParam,
+) userFindMany {
+	var v userFindMany
 	v.query = builder.NewQuery()
 	v.query.Engine = r.client
 
@@ -1287,8 +1843,8 @@ func (r usersActions) FindMany(
 
 	v.query.Method = "findMany"
 
-	v.query.Model = "Users"
-	v.query.Outputs = usersOutput
+	v.query.Model = "User"
+	v.query.Outputs = userOutput
 
 	var where []builder.Field
 	for _, q := range params {
@@ -1320,7 +1876,7 @@ func (r usersActions) FindMany(
 	return v
 }
 
-func (r usersFindMany) With(params ...iUsersRelationWith) usersFindMany {
+func (r userFindMany) With(params ...iUserRelationWith) userFindMany {
 	for _, q := range params {
 		query := q.getQuery()
 		r.query.Outputs = append(r.query.Outputs, builder.Output{
@@ -1333,7 +1889,7 @@ func (r usersFindMany) With(params ...iUsersRelationWith) usersFindMany {
 	return r
 }
 
-func (r usersFindMany) OrderBy(params ...iUsersOrderByParam) usersFindMany {
+func (r userFindMany) OrderBy(params ...iUserOrderByParam) userFindMany {
 	var fields []builder.Field
 
 	for _, param := range params {
@@ -1353,7 +1909,7 @@ func (r usersFindMany) OrderBy(params ...iUsersOrderByParam) usersFindMany {
 	return r
 }
 
-func (r usersFindMany) Skip(count int) usersFindMany {
+func (r userFindMany) Skip(count int) userFindMany {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:  "skip",
 		Value: count,
@@ -1361,7 +1917,7 @@ func (r usersFindMany) Skip(count int) usersFindMany {
 	return r
 }
 
-func (r usersFindMany) Take(count int) usersFindMany {
+func (r userFindMany) Take(count int) userFindMany {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:  "take",
 		Value: count,
@@ -1369,7 +1925,7 @@ func (r usersFindMany) Take(count int) usersFindMany {
 	return r
 }
 
-func (r usersFindMany) Cursor(cursor iUsersCursorParam) usersFindMany {
+func (r userFindMany) Cursor(cursor iUserCursorParam) userFindMany {
 	r.query.Inputs = append(r.query.Inputs, builder.Input{
 		Name:   "cursor",
 		Fields: []builder.Field{cursor.field()},
@@ -1377,11 +1933,11 @@ func (r usersFindMany) Cursor(cursor iUsersCursorParam) usersFindMany {
 	return r
 }
 
-func (r usersFindMany) Exec(ctx context.Context) (
-	[]UsersModel,
+func (r userFindMany) Exec(ctx context.Context) (
+	[]UserModel,
 	error,
 ) {
-	var v []UsersModel
+	var v []UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1389,11 +1945,11 @@ func (r usersFindMany) Exec(ctx context.Context) (
 	return v, nil
 }
 
-func (r usersFindMany) ExecInner(ctx context.Context) (
-	[]InnerUsers,
+func (r userFindMany) ExecInner(ctx context.Context) (
+	[]InnerUser,
 	error,
 ) {
-	var v []InnerUsers
+	var v []InnerUser
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
@@ -1401,14 +1957,14 @@ func (r usersFindMany) ExecInner(ctx context.Context) (
 	return v, nil
 }
 
-func (r usersFindMany) Update(params ...UsersSetParam) usersUpdateMany {
+func (r userFindMany) Update(params ...UserSetParam) userUpdateMany {
 	r.query.Operation = "mutation"
 	r.query.Method = "updateMany"
-	r.query.Model = "Users"
+	r.query.Model = "User"
 
 	r.query.Outputs = countOutput
 
-	var v usersUpdateMany
+	var v userUpdateMany
 	v.query = r.query
 	var fields []builder.Field
 	for _, q := range params {
@@ -1437,17 +1993,17 @@ func (r usersFindMany) Update(params ...UsersSetParam) usersUpdateMany {
 	return v
 }
 
-type usersUpdateMany struct {
+type userUpdateMany struct {
 	query builder.Query
 }
 
-func (r usersUpdateMany) ExtractQuery() builder.Query {
+func (r userUpdateMany) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersUpdateMany) usersModel() {}
+func (r userUpdateMany) userModel() {}
 
-func (r usersUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+func (r userUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
 	var v BatchResult
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
@@ -1455,36 +2011,36 @@ func (r usersUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r usersUpdateMany) Tx() usersManyTxResult {
-	v := NewusersManyTxResult()
+func (r userUpdateMany) Tx() userManyTxResult {
+	v := NewuserManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
 }
 
-func (r usersFindMany) Delete() usersDeleteMany {
-	var v usersDeleteMany
+func (r userFindMany) Delete() userDeleteMany {
+	var v userDeleteMany
 	v.query = r.query
 	v.query.Operation = "mutation"
 	v.query.Method = "deleteMany"
-	v.query.Model = "Users"
+	v.query.Model = "User"
 
 	v.query.Outputs = countOutput
 
 	return v
 }
 
-type usersDeleteMany struct {
+type userDeleteMany struct {
 	query builder.Query
 }
 
-func (r usersDeleteMany) ExtractQuery() builder.Query {
+func (r userDeleteMany) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (p usersDeleteMany) usersModel() {}
+func (p userDeleteMany) userModel() {}
 
-func (r usersDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+func (r userDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
 	var v BatchResult
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
@@ -1492,8 +2048,573 @@ func (r usersDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
 	return &v, nil
 }
 
-func (r usersDeleteMany) Tx() usersManyTxResult {
-	v := NewusersManyTxResult()
+func (r userDeleteMany) Tx() userManyTxResult {
+	v := NewuserManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type roomFindUnique struct {
+	query builder.Query
+}
+
+func (r roomFindUnique) getQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindUnique) with()         {}
+func (r roomFindUnique) roomModel()    {}
+func (r roomFindUnique) roomRelation() {}
+
+func (r roomActions) FindUnique(
+	params RoomEqualsUniqueWhereParam,
+) roomFindUnique {
+	var v roomFindUnique
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findUnique"
+
+	v.query.Model = "Room"
+	v.query.Outputs = roomOutput
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "where",
+		Fields: builder.TransformEquals([]builder.Field{params.field()}),
+	})
+
+	return v
+}
+
+func (r roomFindUnique) With(params ...iRoomRelationWith) roomFindUnique {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r roomFindUnique) Exec(ctx context.Context) (
+	*RoomModel,
+	error,
+) {
+	var v *RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r roomFindUnique) ExecInner(ctx context.Context) (
+	*InnerRoom,
+	error,
+) {
+	var v *InnerRoom
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r roomFindUnique) Update(params ...RoomSetParam) roomUpdateUnique {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Room"
+
+	var v roomUpdateUnique
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type roomUpdateUnique struct {
+	query builder.Query
+}
+
+func (r roomUpdateUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomUpdateUnique) roomModel() {}
+
+func (r roomUpdateUnique) Exec(ctx context.Context) (*RoomModel, error) {
+	var v RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomUpdateUnique) Tx() roomUniqueTxResult {
+	v := NewroomUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r roomFindUnique) Delete() roomDeleteUnique {
+	var v roomDeleteUnique
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Room"
+
+	return v
+}
+
+type roomDeleteUnique struct {
+	query builder.Query
+}
+
+func (r roomDeleteUnique) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p roomDeleteUnique) roomModel() {}
+
+func (r roomDeleteUnique) Exec(ctx context.Context) (*RoomModel, error) {
+	var v RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomDeleteUnique) Tx() roomUniqueTxResult {
+	v := NewroomUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type roomFindFirst struct {
+	query builder.Query
+}
+
+func (r roomFindFirst) getQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindFirst) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindFirst) with()         {}
+func (r roomFindFirst) roomModel()    {}
+func (r roomFindFirst) roomRelation() {}
+
+func (r roomActions) FindFirst(
+	params ...RoomWhereParam,
+) roomFindFirst {
+	var v roomFindFirst
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findFirst"
+
+	v.query.Model = "Room"
+	v.query.Outputs = roomOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{
+				{
+					Name:     "AND",
+					List:     true,
+					WrapList: true,
+					Fields:   where,
+				},
+			},
+		})
+	}
+
+	return v
+}
+
+func (r roomFindFirst) With(params ...iRoomRelationWith) roomFindFirst {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r roomFindFirst) OrderBy(params ...iRoomOrderByParam) roomFindFirst {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(SortOrder)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r roomFindFirst) Skip(count int) roomFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r roomFindFirst) Take(count int) roomFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r roomFindFirst) Cursor(cursor iRoomCursorParam) roomFindFirst {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r roomFindFirst) Exec(ctx context.Context) (
+	*RoomModel,
+	error,
+) {
+	var v *RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+func (r roomFindFirst) ExecInner(ctx context.Context) (
+	*InnerRoom,
+	error,
+) {
+	var v *InnerRoom
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	if v == nil {
+		return nil, ErrNotFound
+	}
+
+	return v, nil
+}
+
+type roomFindMany struct {
+	query builder.Query
+}
+
+func (r roomFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomFindMany) with()         {}
+func (r roomFindMany) roomModel()    {}
+func (r roomFindMany) roomRelation() {}
+
+func (r roomActions) FindMany(
+	params ...RoomWhereParam,
+) roomFindMany {
+	var v roomFindMany
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "query"
+
+	v.query.Method = "findMany"
+
+	v.query.Model = "Room"
+	v.query.Outputs = roomOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name: "where",
+			Fields: []builder.Field{
+				{
+					Name:     "AND",
+					List:     true,
+					WrapList: true,
+					Fields:   where,
+				},
+			},
+		})
+	}
+
+	return v
+}
+
+func (r roomFindMany) With(params ...iRoomRelationWith) roomFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r roomFindMany) OrderBy(params ...iRoomOrderByParam) roomFindMany {
+	var fields []builder.Field
+
+	for _, param := range params {
+		direction, _ := param.field().Value.(SortOrder)
+
+		fields = append(fields, builder.Field{
+			Name:  param.field().Name,
+			Value: direction,
+		})
+	}
+
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "orderBy",
+		Fields: fields,
+	})
+
+	return r
+}
+
+func (r roomFindMany) Skip(count int) roomFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r roomFindMany) Take(count int) roomFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r roomFindMany) Cursor(cursor iRoomCursorParam) roomFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r roomFindMany) Exec(ctx context.Context) (
+	[]RoomModel,
+	error,
+) {
+	var v []RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r roomFindMany) ExecInner(ctx context.Context) (
+	[]InnerRoom,
+	error,
+) {
+	var v []InnerRoom
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+
+	return v, nil
+}
+
+func (r roomFindMany) Update(params ...RoomSetParam) roomUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Room"
+
+	r.query.Outputs = countOutput
+
+	var v roomUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type roomUpdateMany struct {
+	query builder.Query
+}
+
+func (r roomUpdateMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomUpdateMany) roomModel() {}
+
+func (r roomUpdateMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomUpdateMany) Tx() roomManyTxResult {
+	v := NewroomManyTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+func (r roomFindMany) Delete() roomDeleteMany {
+	var v roomDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Room"
+
+	v.query.Outputs = countOutput
+
+	return v
+}
+
+type roomDeleteMany struct {
+	query builder.Query
+}
+
+func (r roomDeleteMany) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (p roomDeleteMany) roomModel() {}
+
+func (r roomDeleteMany) Exec(ctx context.Context) (*BatchResult, error) {
+	var v BatchResult
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomDeleteMany) Tx() roomManyTxResult {
+	v := NewroomManyTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -1501,48 +2622,96 @@ func (r usersDeleteMany) Tx() usersManyTxResult {
 
 // --- template transaction.gotpl ---
 
-func NewusersUniqueTxResult() usersUniqueTxResult {
-	return usersUniqueTxResult{
+func NewuserUniqueTxResult() userUniqueTxResult {
+	return userUniqueTxResult{
 		result: &transaction.Result{},
 	}
 }
 
-type usersUniqueTxResult struct {
+type userUniqueTxResult struct {
 	query  builder.Query
 	result *transaction.Result
 }
 
-func (p usersUniqueTxResult) ExtractQuery() builder.Query {
+func (p userUniqueTxResult) ExtractQuery() builder.Query {
 	return p.query
 }
 
-func (p usersUniqueTxResult) IsTx() {}
+func (p userUniqueTxResult) IsTx() {}
 
-func (r usersUniqueTxResult) Result() (v *UsersModel) {
+func (r userUniqueTxResult) Result() (v *UserModel) {
 	if err := r.result.Get(r.query.TxResult, &v); err != nil {
 		panic(err)
 	}
 	return v
 }
 
-func NewusersManyTxResult() usersManyTxResult {
-	return usersManyTxResult{
+func NewuserManyTxResult() userManyTxResult {
+	return userManyTxResult{
 		result: &transaction.Result{},
 	}
 }
 
-type usersManyTxResult struct {
+type userManyTxResult struct {
 	query  builder.Query
 	result *transaction.Result
 }
 
-func (p usersManyTxResult) ExtractQuery() builder.Query {
+func (p userManyTxResult) ExtractQuery() builder.Query {
 	return p.query
 }
 
-func (p usersManyTxResult) IsTx() {}
+func (p userManyTxResult) IsTx() {}
 
-func (r usersManyTxResult) Result() (v *BatchResult) {
+func (r userManyTxResult) Result() (v *BatchResult) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewroomUniqueTxResult() roomUniqueTxResult {
+	return roomUniqueTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type roomUniqueTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p roomUniqueTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p roomUniqueTxResult) IsTx() {}
+
+func (r roomUniqueTxResult) Result() (v *RoomModel) {
+	if err := r.result.Get(r.query.TxResult, &v); err != nil {
+		panic(err)
+	}
+	return v
+}
+
+func NewroomManyTxResult() roomManyTxResult {
+	return roomManyTxResult{
+		result: &transaction.Result{},
+	}
+}
+
+type roomManyTxResult struct {
+	query  builder.Query
+	result *transaction.Result
+}
+
+func (p roomManyTxResult) ExtractQuery() builder.Query {
+	return p.query
+}
+
+func (p roomManyTxResult) IsTx() {}
+
+func (r roomManyTxResult) Result() (v *BatchResult) {
 	if err := r.result.Get(r.query.TxResult, &v); err != nil {
 		panic(err)
 	}
@@ -1551,33 +2720,33 @@ func (r usersManyTxResult) Result() (v *BatchResult) {
 
 // --- template upsert.gotpl ---
 
-type usersUpsertOne struct {
+type userUpsertOne struct {
 	query builder.Query
 }
 
-func (r usersUpsertOne) getQuery() builder.Query {
+func (r userUpsertOne) getQuery() builder.Query {
 	return r.query
 }
 
-func (r usersUpsertOne) ExtractQuery() builder.Query {
+func (r userUpsertOne) ExtractQuery() builder.Query {
 	return r.query
 }
 
-func (r usersUpsertOne) with()          {}
-func (r usersUpsertOne) usersModel()    {}
-func (r usersUpsertOne) usersRelation() {}
+func (r userUpsertOne) with()         {}
+func (r userUpsertOne) userModel()    {}
+func (r userUpsertOne) userRelation() {}
 
-func (r usersActions) UpsertOne(
-	params UsersEqualsUniqueWhereParam,
-) usersUpsertOne {
-	var v usersUpsertOne
+func (r userActions) UpsertOne(
+	params UserEqualsUniqueWhereParam,
+) userUpsertOne {
+	var v userUpsertOne
 	v.query = builder.NewQuery()
 	v.query.Engine = r.client
 
 	v.query.Operation = "mutation"
 	v.query.Method = "upsertOne"
-	v.query.Model = "Users"
-	v.query.Outputs = usersOutput
+	v.query.Model = "User"
+	v.query.Outputs = userOutput
 
 	v.query.Inputs = append(v.query.Inputs, builder.Input{
 		Name:   "where",
@@ -1587,16 +2756,16 @@ func (r usersActions) UpsertOne(
 	return v
 }
 
-func (r usersUpsertOne) Create(
+func (r userUpsertOne) Create(
 
-	_firstName UsersWithPrismaFirstNameSetParam,
-	_lastName UsersWithPrismaLastNameSetParam,
-	_email UsersWithPrismaEmailSetParam,
-	_password UsersWithPrismaPasswordSetParam,
+	_firstName UserWithPrismaFirstNameSetParam,
+	_lastName UserWithPrismaLastNameSetParam,
+	_email UserWithPrismaEmailSetParam,
+	_password UserWithPrismaPasswordSetParam,
 
-	optional ...UsersSetParam,
-) usersUpsertOne {
-	var v usersUpsertOne
+	optional ...UserSetParam,
+) userUpsertOne {
+	var v userUpsertOne
 	v.query = r.query
 
 	var fields []builder.Field
@@ -1617,10 +2786,10 @@ func (r usersUpsertOne) Create(
 	return v
 }
 
-func (r usersUpsertOne) Update(
-	params ...UsersSetParam,
-) usersUpsertOne {
-	var v usersUpsertOne
+func (r userUpsertOne) Update(
+	params ...UserSetParam,
+) userUpsertOne {
+	var v userUpsertOne
 	v.query = r.query
 
 	var fields []builder.Field
@@ -1652,16 +2821,126 @@ func (r usersUpsertOne) Update(
 	return v
 }
 
-func (r usersUpsertOne) Exec(ctx context.Context) (*UsersModel, error) {
-	var v UsersModel
+func (r userUpsertOne) Exec(ctx context.Context) (*UserModel, error) {
+	var v UserModel
 	if err := r.query.Exec(ctx, &v); err != nil {
 		return nil, err
 	}
 	return &v, nil
 }
 
-func (r usersUpsertOne) Tx() usersUniqueTxResult {
-	v := NewusersUniqueTxResult()
+func (r userUpsertOne) Tx() userUniqueTxResult {
+	v := NewuserUniqueTxResult()
+	v.query = r.query
+	v.query.TxResult = make(chan []byte, 1)
+	return v
+}
+
+type roomUpsertOne struct {
+	query builder.Query
+}
+
+func (r roomUpsertOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r roomUpsertOne) ExtractQuery() builder.Query {
+	return r.query
+}
+
+func (r roomUpsertOne) with()         {}
+func (r roomUpsertOne) roomModel()    {}
+func (r roomUpsertOne) roomRelation() {}
+
+func (r roomActions) UpsertOne(
+	params RoomEqualsUniqueWhereParam,
+) roomUpsertOne {
+	var v roomUpsertOne
+	v.query = builder.NewQuery()
+	v.query.Engine = r.client
+
+	v.query.Operation = "mutation"
+	v.query.Method = "upsertOne"
+	v.query.Model = "Room"
+	v.query.Outputs = roomOutput
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "where",
+		Fields: builder.TransformEquals([]builder.Field{params.field()}),
+	})
+
+	return v
+}
+
+func (r roomUpsertOne) Create(
+
+	_roomName RoomWithPrismaRoomNameSetParam,
+
+	optional ...RoomSetParam,
+) roomUpsertOne {
+	var v roomUpsertOne
+	v.query = r.query
+
+	var fields []builder.Field
+	fields = append(fields, _roomName.field())
+
+	for _, q := range optional {
+		fields = append(fields, q.field())
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "create",
+		Fields: fields,
+	})
+
+	return v
+}
+
+func (r roomUpsertOne) Update(
+	params ...RoomSetParam,
+) roomUpsertOne {
+	var v roomUpsertOne
+	v.query = r.query
+
+	var fields []builder.Field
+	for _, q := range params {
+
+		field := q.field()
+
+		_, isJson := field.Value.(types.JSON)
+		if field.Value != nil && !isJson {
+			v := field.Value
+			field.Fields = []builder.Field{
+				{
+					Name:  "set",
+					Value: v,
+				},
+			}
+
+			field.Value = nil
+		}
+
+		fields = append(fields, field)
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "update",
+		Fields: fields,
+	})
+
+	return v
+}
+
+func (r roomUpsertOne) Exec(ctx context.Context) (*RoomModel, error) {
+	var v RoomModel
+	if err := r.query.Exec(ctx, &v); err != nil {
+		return nil, err
+	}
+	return &v, nil
+}
+
+func (r roomUpsertOne) Tx() roomUniqueTxResult {
+	v := NewroomUniqueTxResult()
 	v.query = r.query
 	v.query.TxResult = make(chan []byte, 1)
 	return v
@@ -1677,7 +2956,7 @@ generator db {
     provider = "go run github.com/prisma/prisma-client-go"
 }
 
-model Users {
+model User {
     id  String  @id @default(uuid())
     firstName   String
     lastName    String
@@ -1686,6 +2965,13 @@ model Users {
     accessLevel Int @default(1)
     createdAt   DateTime @default(now())
     updatedAt   DateTime    @updatedAt
+}
+
+model Room {
+    id String @id @default(uuid())
+    roomName String
+    createdAt DateTime  @default(now())
+    updatedAt DateTime @updatedAt
 }`
 
 // hasBinaryTargets is true when binaryTargets are provided on generation time
@@ -1724,7 +3010,8 @@ func newMockClient(expectations *[]mock.Expectation) *PrismaClient {
 
 func newClient() *PrismaClient {
 	c := &PrismaClient{}
-	c.Users = usersActions{client: c}
+	c.User = userActions{client: c}
+	c.Room = roomActions{client: c}
 
 	c.Prisma = &PrismaActions{
 		Raw: &raw.Raw{Engine: c},
@@ -1749,23 +3036,34 @@ type PrismaClient struct {
 	// prisma provides prisma-related methods as opposed to model methods, such as Connect, Disconnect or raw queries
 	Prisma *PrismaActions
 
-	// Users provides access to CRUD methods.
-	Users usersActions
+	// User provides access to CRUD methods.
+	User userActions
+	// Room provides access to CRUD methods.
+	Room roomActions
 }
 
 // --- template enums.gotpl ---
 
-type UsersScalarFieldEnum string
+type UserScalarFieldEnum string
 
 const (
-	UsersScalarFieldEnumID          UsersScalarFieldEnum = "id"
-	UsersScalarFieldEnumFirstName   UsersScalarFieldEnum = "firstName"
-	UsersScalarFieldEnumLastName    UsersScalarFieldEnum = "lastName"
-	UsersScalarFieldEnumEmail       UsersScalarFieldEnum = "email"
-	UsersScalarFieldEnumPassword    UsersScalarFieldEnum = "password"
-	UsersScalarFieldEnumAccessLevel UsersScalarFieldEnum = "accessLevel"
-	UsersScalarFieldEnumCreatedAt   UsersScalarFieldEnum = "createdAt"
-	UsersScalarFieldEnumUpdatedAt   UsersScalarFieldEnum = "updatedAt"
+	UserScalarFieldEnumID          UserScalarFieldEnum = "id"
+	UserScalarFieldEnumFirstName   UserScalarFieldEnum = "firstName"
+	UserScalarFieldEnumLastName    UserScalarFieldEnum = "lastName"
+	UserScalarFieldEnumEmail       UserScalarFieldEnum = "email"
+	UserScalarFieldEnumPassword    UserScalarFieldEnum = "password"
+	UserScalarFieldEnumAccessLevel UserScalarFieldEnum = "accessLevel"
+	UserScalarFieldEnumCreatedAt   UserScalarFieldEnum = "createdAt"
+	UserScalarFieldEnumUpdatedAt   UserScalarFieldEnum = "updatedAt"
+)
+
+type RoomScalarFieldEnum string
+
+const (
+	RoomScalarFieldEnumID        RoomScalarFieldEnum = "id"
+	RoomScalarFieldEnumRoomName  RoomScalarFieldEnum = "roomName"
+	RoomScalarFieldEnumCreatedAt RoomScalarFieldEnum = "createdAt"
+	RoomScalarFieldEnumUpdatedAt RoomScalarFieldEnum = "updatedAt"
 )
 
 type SortOrder string
@@ -1795,7 +3093,11 @@ func NewMock() (*PrismaClient, *Mock, func(t *testing.T)) {
 		},
 	}
 
-	m.Users = usersMock{
+	m.User = userMock{
+		mock: m,
+	}
+
+	m.Room = roomMock{
 		mock: m,
 	}
 
@@ -1805,45 +3107,89 @@ func NewMock() (*PrismaClient, *Mock, func(t *testing.T)) {
 type Mock struct {
 	*mock.Mock
 
-	Users usersMock
+	User userMock
+
+	Room roomMock
 }
 
-type usersMock struct {
+type userMock struct {
 	mock *Mock
 }
 
-type iUsersMockExpectParam interface {
+type iUserMockExpectParam interface {
 	ExtractQuery() builder.Query
-	usersModel()
+	userModel()
 }
 
-func (m *usersMock) Expect(query iUsersMockExpectParam) *usersMockExec {
-	return &usersMockExec{
+func (m *userMock) Expect(query iUserMockExpectParam) *userMockExec {
+	return &userMockExec{
 		mock:  m.mock,
 		query: query.ExtractQuery(),
 	}
 }
 
-type usersMockExec struct {
+type userMockExec struct {
 	mock  *Mock
 	query builder.Query
 }
 
-func (m *usersMockExec) Returns(v UsersModel) {
+func (m *userMockExec) Returns(v UserModel) {
 	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
 		Query: m.query,
 		Want:  &v,
 	})
 }
 
-func (m *usersMockExec) ReturnsMany(v []UsersModel) {
+func (m *userMockExec) ReturnsMany(v []UserModel) {
 	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
 		Query: m.query,
 		Want:  &v,
 	})
 }
 
-func (m *usersMockExec) Errors(err error) {
+func (m *userMockExec) Errors(err error) {
+	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
+		Query:   m.query,
+		WantErr: err,
+	})
+}
+
+type roomMock struct {
+	mock *Mock
+}
+
+type iRoomMockExpectParam interface {
+	ExtractQuery() builder.Query
+	roomModel()
+}
+
+func (m *roomMock) Expect(query iRoomMockExpectParam) *roomMockExec {
+	return &roomMockExec{
+		mock:  m.mock,
+		query: query.ExtractQuery(),
+	}
+}
+
+type roomMockExec struct {
+	mock  *Mock
+	query builder.Query
+}
+
+func (m *roomMockExec) Returns(v RoomModel) {
+	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
+		Query: m.query,
+		Want:  &v,
+	})
+}
+
+func (m *roomMockExec) ReturnsMany(v []RoomModel) {
+	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
+		Query: m.query,
+		Want:  &v,
+	})
+}
+
+func (m *roomMockExec) Errors(err error) {
 	*m.mock.Expectations = append(*m.mock.Expectations, mock.Expectation{
 		Query:   m.query,
 		WantErr: err,
@@ -1852,14 +3198,14 @@ func (m *usersMockExec) Errors(err error) {
 
 // --- template models.gotpl ---
 
-// UsersModel represents the `json:"Users"` model and is a wrapper for accessing fields and methods
-type UsersModel struct {
-	InnerUsers
-	RelationsUsers
+// UserModel represents the `json:"User"` model and is a wrapper for accessing fields and methods
+type UserModel struct {
+	InnerUser
+	RelationsUser
 }
 
-// InnerUsers holds the actual data
-type InnerUsers struct {
+// InnerUser holds the actual data
+type InnerUser struct {
 	ID          string   `json:"id"`
 	FirstName   string   `json:"firstName"`
 	LastName    string   `json:"lastName"`
@@ -1870,66 +3216,84 @@ type InnerUsers struct {
 	UpdatedAt   DateTime `json:"updatedAt"`
 }
 
-// RelationsUsers holds the relation data separately
-type RelationsUsers struct {
+// RelationsUser holds the relation data separately
+type RelationsUser struct {
+}
+
+// RoomModel represents the `json:"Room"` model and is a wrapper for accessing fields and methods
+type RoomModel struct {
+	InnerRoom
+	RelationsRoom
+}
+
+// InnerRoom holds the actual data
+type InnerRoom struct {
+	ID        string   `json:"id"`
+	RoomName  string   `json:"roomName"`
+	CreatedAt DateTime `json:"createdAt"`
+	UpdatedAt DateTime `json:"updatedAt"`
+}
+
+// RelationsRoom holds the relation data separately
+type RelationsRoom struct {
 }
 
 // --- template query.gotpl ---
 
-// Users acts as a namespaces to access query methods for the Users model
-var Users = usersQuery{}
+// User acts as a namespaces to access query methods for the User model
+var User = userQuery{}
 
-// usersQuery exposes query functions for the users model
-type usersQuery struct {
+// userQuery exposes query functions for the user model
+type userQuery struct {
 	// ID
 	//
 	// @required
-	ID usersQueryIDString
+	ID userQueryIDString
 
 	// FirstName
 	//
 	// @required
-	FirstName usersQueryFirstNameString
+	FirstName userQueryFirstNameString
 
 	// LastName
 	//
 	// @required
-	LastName usersQueryLastNameString
+	LastName userQueryLastNameString
 
 	// Email
 	//
 	// @required
-	Email usersQueryEmailString
+	Email userQueryEmailString
 
 	// Password
 	//
 	// @required
-	Password usersQueryPasswordString
+	Password userQueryPasswordString
 
 	// AccessLevel
 	//
 	// @required
-	AccessLevel usersQueryAccessLevelInt
+	AccessLevel userQueryAccessLevelInt
 
 	// CreatedAt
 	//
 	// @required
-	CreatedAt usersQueryCreatedAtDateTime
+	CreatedAt userQueryCreatedAtDateTime
 
 	// UpdatedAt
 	//
 	// @required
-	UpdatedAt usersQueryUpdatedAtDateTime
+	UpdatedAt userQueryUpdatedAtDateTime
 }
 
-func (usersQuery) Not(params ...UsersWhereParam) usersDefaultParam {
+func (userQuery) Not(params ...UserWhereParam) userDefaultParam {
 	var fields []builder.Field
 
 	for _, q := range params {
 		fields = append(fields, q.field())
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name:     "NOT",
 			List:     true,
@@ -1939,14 +3303,14 @@ func (usersQuery) Not(params ...UsersWhereParam) usersDefaultParam {
 	}
 }
 
-func (usersQuery) Or(params ...UsersWhereParam) usersDefaultParam {
+func (userQuery) Or(params ...UserWhereParam) userDefaultParam {
 	var fields []builder.Field
 
 	for _, q := range params {
 		fields = append(fields, q.field())
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name:     "OR",
 			List:     true,
@@ -1956,14 +3320,14 @@ func (usersQuery) Or(params ...UsersWhereParam) usersDefaultParam {
 	}
 }
 
-func (usersQuery) And(params ...UsersWhereParam) usersDefaultParam {
+func (userQuery) And(params ...UserWhereParam) userDefaultParam {
 	var fields []builder.Field
 
 	for _, q := range params {
 		fields = append(fields, q.field())
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name:     "AND",
 			List:     true,
@@ -1974,12 +3338,12 @@ func (usersQuery) And(params ...UsersWhereParam) usersDefaultParam {
 }
 
 // base struct
-type usersQueryIDString struct{}
+type userQueryIDString struct{}
 
 // Set the required value of ID
-func (r usersQueryIDString) Set(value string) usersSetParam {
+func (r userQueryIDString) Set(value string) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name:  "id",
 			Value: value,
@@ -1989,17 +3353,17 @@ func (r usersQueryIDString) Set(value string) usersSetParam {
 }
 
 // Set the optional value of ID dynamically
-func (r usersQueryIDString) SetIfPresent(value *string) usersSetParam {
+func (r userQueryIDString) SetIfPresent(value *string) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryIDString) Equals(value string) usersWithPrismaIDEqualsUniqueParam {
+func (r userQueryIDString) Equals(value string) userWithPrismaIDEqualsUniqueParam {
 
-	return usersWithPrismaIDEqualsUniqueParam{
+	return userWithPrismaIDEqualsUniqueParam{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2012,15 +3376,15 @@ func (r usersQueryIDString) Equals(value string) usersWithPrismaIDEqualsUniquePa
 	}
 }
 
-func (r usersQueryIDString) EqualsIfPresent(value *string) usersWithPrismaIDEqualsUniqueParam {
+func (r userQueryIDString) EqualsIfPresent(value *string) userWithPrismaIDEqualsUniqueParam {
 	if value == nil {
-		return usersWithPrismaIDEqualsUniqueParam{}
+		return userWithPrismaIDEqualsUniqueParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryIDString) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryIDString) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "id",
 			Value: direction,
@@ -2028,8 +3392,8 @@ func (r usersQueryIDString) Order(direction SortOrder) usersDefaultParam {
 	}
 }
 
-func (r usersQueryIDString) Cursor(cursor string) usersCursorParam {
-	return usersCursorParam{
+func (r userQueryIDString) Cursor(cursor string) userCursorParam {
+	return userCursorParam{
 		data: builder.Field{
 			Name:  "id",
 			Value: cursor,
@@ -2037,7 +3401,7 @@ func (r usersQueryIDString) Cursor(cursor string) usersCursorParam {
 	}
 }
 
-func (r usersQueryIDString) In(value []string) usersParamUnique {
+func (r userQueryIDString) In(value []string) userParamUnique {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2046,7 +3410,7 @@ func (r usersQueryIDString) In(value []string) usersParamUnique {
 		})
 	}
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2061,14 +3425,14 @@ func (r usersQueryIDString) In(value []string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) InIfPresent(value []string) usersParamUnique {
+func (r userQueryIDString) InIfPresent(value []string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryIDString) NotIn(value []string) usersParamUnique {
+func (r userQueryIDString) NotIn(value []string) userParamUnique {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2077,7 +3441,7 @@ func (r usersQueryIDString) NotIn(value []string) usersParamUnique {
 		})
 	}
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2092,16 +3456,16 @@ func (r usersQueryIDString) NotIn(value []string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) NotInIfPresent(value []string) usersParamUnique {
+func (r userQueryIDString) NotInIfPresent(value []string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryIDString) Lt(value string) usersParamUnique {
+func (r userQueryIDString) Lt(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2115,16 +3479,16 @@ func (r usersQueryIDString) Lt(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) LtIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) LtIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryIDString) Lte(value string) usersParamUnique {
+func (r userQueryIDString) Lte(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2138,16 +3502,16 @@ func (r usersQueryIDString) Lte(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) LteIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) LteIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryIDString) Gt(value string) usersParamUnique {
+func (r userQueryIDString) Gt(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2161,16 +3525,16 @@ func (r usersQueryIDString) Gt(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) GtIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) GtIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryIDString) Gte(value string) usersParamUnique {
+func (r userQueryIDString) Gte(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2184,16 +3548,16 @@ func (r usersQueryIDString) Gte(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) GteIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) GteIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryIDString) Contains(value string) usersParamUnique {
+func (r userQueryIDString) Contains(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2207,16 +3571,16 @@ func (r usersQueryIDString) Contains(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) ContainsIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) ContainsIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Contains(*value)
 }
 
-func (r usersQueryIDString) StartsWith(value string) usersParamUnique {
+func (r userQueryIDString) StartsWith(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2230,16 +3594,16 @@ func (r usersQueryIDString) StartsWith(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) StartsWithIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) StartsWithIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.StartsWith(*value)
 }
 
-func (r usersQueryIDString) EndsWith(value string) usersParamUnique {
+func (r userQueryIDString) EndsWith(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2253,16 +3617,16 @@ func (r usersQueryIDString) EndsWith(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) EndsWithIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) EndsWithIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.EndsWith(*value)
 }
 
-func (r usersQueryIDString) Mode(value QueryMode) usersParamUnique {
+func (r userQueryIDString) Mode(value QueryMode) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2276,16 +3640,16 @@ func (r usersQueryIDString) Mode(value QueryMode) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) ModeIfPresent(value *QueryMode) usersParamUnique {
+func (r userQueryIDString) ModeIfPresent(value *QueryMode) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Mode(*value)
 }
 
-func (r usersQueryIDString) Not(value string) usersParamUnique {
+func (r userQueryIDString) Not(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2299,18 +3663,18 @@ func (r usersQueryIDString) Not(value string) usersParamUnique {
 	}
 }
 
-func (r usersQueryIDString) NotIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) NotIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use StartsWith instead.
 
-func (r usersQueryIDString) HasPrefix(value string) usersParamUnique {
+func (r userQueryIDString) HasPrefix(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2325,18 +3689,18 @@ func (r usersQueryIDString) HasPrefix(value string) usersParamUnique {
 }
 
 // deprecated: Use StartsWithIfPresent instead.
-func (r usersQueryIDString) HasPrefixIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) HasPrefixIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.HasPrefix(*value)
 }
 
 // deprecated: Use EndsWith instead.
 
-func (r usersQueryIDString) HasSuffix(value string) usersParamUnique {
+func (r userQueryIDString) HasSuffix(value string) userParamUnique {
 
-	return usersParamUnique{
+	return userParamUnique{
 		data: builder.Field{
 			Name: "id",
 			Fields: []builder.Field{
@@ -2351,20 +3715,20 @@ func (r usersQueryIDString) HasSuffix(value string) usersParamUnique {
 }
 
 // deprecated: Use EndsWithIfPresent instead.
-func (r usersQueryIDString) HasSuffixIfPresent(value *string) usersParamUnique {
+func (r userQueryIDString) HasSuffixIfPresent(value *string) userParamUnique {
 	if value == nil {
-		return usersParamUnique{}
+		return userParamUnique{}
 	}
 	return r.HasSuffix(*value)
 }
 
 // base struct
-type usersQueryFirstNameString struct{}
+type userQueryFirstNameString struct{}
 
 // Set the required value of FirstName
-func (r usersQueryFirstNameString) Set(value string) usersWithPrismaFirstNameSetParam {
+func (r userQueryFirstNameString) Set(value string) userWithPrismaFirstNameSetParam {
 
-	return usersWithPrismaFirstNameSetParam{
+	return userWithPrismaFirstNameSetParam{
 		data: builder.Field{
 			Name:  "firstName",
 			Value: value,
@@ -2374,17 +3738,17 @@ func (r usersQueryFirstNameString) Set(value string) usersWithPrismaFirstNameSet
 }
 
 // Set the optional value of FirstName dynamically
-func (r usersQueryFirstNameString) SetIfPresent(value *string) usersWithPrismaFirstNameSetParam {
+func (r userQueryFirstNameString) SetIfPresent(value *string) userWithPrismaFirstNameSetParam {
 	if value == nil {
-		return usersWithPrismaFirstNameSetParam{}
+		return userWithPrismaFirstNameSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryFirstNameString) Equals(value string) usersWithPrismaFirstNameEqualsParam {
+func (r userQueryFirstNameString) Equals(value string) userWithPrismaFirstNameEqualsParam {
 
-	return usersWithPrismaFirstNameEqualsParam{
+	return userWithPrismaFirstNameEqualsParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2397,15 +3761,15 @@ func (r usersQueryFirstNameString) Equals(value string) usersWithPrismaFirstName
 	}
 }
 
-func (r usersQueryFirstNameString) EqualsIfPresent(value *string) usersWithPrismaFirstNameEqualsParam {
+func (r userQueryFirstNameString) EqualsIfPresent(value *string) userWithPrismaFirstNameEqualsParam {
 	if value == nil {
-		return usersWithPrismaFirstNameEqualsParam{}
+		return userWithPrismaFirstNameEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryFirstNameString) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryFirstNameString) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "firstName",
 			Value: direction,
@@ -2413,7 +3777,7 @@ func (r usersQueryFirstNameString) Order(direction SortOrder) usersDefaultParam 
 	}
 }
 
-func (r usersQueryFirstNameString) In(value []string) usersDefaultParam {
+func (r userQueryFirstNameString) In(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2422,7 +3786,7 @@ func (r usersQueryFirstNameString) In(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2437,14 +3801,14 @@ func (r usersQueryFirstNameString) In(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) InIfPresent(value []string) usersDefaultParam {
+func (r userQueryFirstNameString) InIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryFirstNameString) NotIn(value []string) usersDefaultParam {
+func (r userQueryFirstNameString) NotIn(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2453,7 +3817,7 @@ func (r usersQueryFirstNameString) NotIn(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2468,16 +3832,16 @@ func (r usersQueryFirstNameString) NotIn(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) NotInIfPresent(value []string) usersDefaultParam {
+func (r userQueryFirstNameString) NotInIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryFirstNameString) Lt(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Lt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2491,16 +3855,16 @@ func (r usersQueryFirstNameString) Lt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) LtIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) LtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryFirstNameString) Lte(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Lte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2514,16 +3878,16 @@ func (r usersQueryFirstNameString) Lte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) LteIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) LteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryFirstNameString) Gt(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Gt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2537,16 +3901,16 @@ func (r usersQueryFirstNameString) Gt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) GtIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) GtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryFirstNameString) Gte(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Gte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2560,16 +3924,16 @@ func (r usersQueryFirstNameString) Gte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) GteIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) GteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryFirstNameString) Contains(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Contains(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2583,16 +3947,16 @@ func (r usersQueryFirstNameString) Contains(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) ContainsIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) ContainsIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Contains(*value)
 }
 
-func (r usersQueryFirstNameString) StartsWith(value string) usersDefaultParam {
+func (r userQueryFirstNameString) StartsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2606,16 +3970,16 @@ func (r usersQueryFirstNameString) StartsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) StartsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) StartsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.StartsWith(*value)
 }
 
-func (r usersQueryFirstNameString) EndsWith(value string) usersDefaultParam {
+func (r userQueryFirstNameString) EndsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2629,16 +3993,16 @@ func (r usersQueryFirstNameString) EndsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) EndsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) EndsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.EndsWith(*value)
 }
 
-func (r usersQueryFirstNameString) Mode(value QueryMode) usersDefaultParam {
+func (r userQueryFirstNameString) Mode(value QueryMode) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2652,16 +4016,16 @@ func (r usersQueryFirstNameString) Mode(value QueryMode) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) ModeIfPresent(value *QueryMode) usersDefaultParam {
+func (r userQueryFirstNameString) ModeIfPresent(value *QueryMode) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Mode(*value)
 }
 
-func (r usersQueryFirstNameString) Not(value string) usersDefaultParam {
+func (r userQueryFirstNameString) Not(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2675,18 +4039,18 @@ func (r usersQueryFirstNameString) Not(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryFirstNameString) NotIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) NotIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use StartsWith instead.
 
-func (r usersQueryFirstNameString) HasPrefix(value string) usersDefaultParam {
+func (r userQueryFirstNameString) HasPrefix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2701,18 +4065,18 @@ func (r usersQueryFirstNameString) HasPrefix(value string) usersDefaultParam {
 }
 
 // deprecated: Use StartsWithIfPresent instead.
-func (r usersQueryFirstNameString) HasPrefixIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) HasPrefixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasPrefix(*value)
 }
 
 // deprecated: Use EndsWith instead.
 
-func (r usersQueryFirstNameString) HasSuffix(value string) usersDefaultParam {
+func (r userQueryFirstNameString) HasSuffix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "firstName",
 			Fields: []builder.Field{
@@ -2727,20 +4091,20 @@ func (r usersQueryFirstNameString) HasSuffix(value string) usersDefaultParam {
 }
 
 // deprecated: Use EndsWithIfPresent instead.
-func (r usersQueryFirstNameString) HasSuffixIfPresent(value *string) usersDefaultParam {
+func (r userQueryFirstNameString) HasSuffixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasSuffix(*value)
 }
 
 // base struct
-type usersQueryLastNameString struct{}
+type userQueryLastNameString struct{}
 
 // Set the required value of LastName
-func (r usersQueryLastNameString) Set(value string) usersWithPrismaLastNameSetParam {
+func (r userQueryLastNameString) Set(value string) userWithPrismaLastNameSetParam {
 
-	return usersWithPrismaLastNameSetParam{
+	return userWithPrismaLastNameSetParam{
 		data: builder.Field{
 			Name:  "lastName",
 			Value: value,
@@ -2750,17 +4114,17 @@ func (r usersQueryLastNameString) Set(value string) usersWithPrismaLastNameSetPa
 }
 
 // Set the optional value of LastName dynamically
-func (r usersQueryLastNameString) SetIfPresent(value *string) usersWithPrismaLastNameSetParam {
+func (r userQueryLastNameString) SetIfPresent(value *string) userWithPrismaLastNameSetParam {
 	if value == nil {
-		return usersWithPrismaLastNameSetParam{}
+		return userWithPrismaLastNameSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryLastNameString) Equals(value string) usersWithPrismaLastNameEqualsParam {
+func (r userQueryLastNameString) Equals(value string) userWithPrismaLastNameEqualsParam {
 
-	return usersWithPrismaLastNameEqualsParam{
+	return userWithPrismaLastNameEqualsParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2773,15 +4137,15 @@ func (r usersQueryLastNameString) Equals(value string) usersWithPrismaLastNameEq
 	}
 }
 
-func (r usersQueryLastNameString) EqualsIfPresent(value *string) usersWithPrismaLastNameEqualsParam {
+func (r userQueryLastNameString) EqualsIfPresent(value *string) userWithPrismaLastNameEqualsParam {
 	if value == nil {
-		return usersWithPrismaLastNameEqualsParam{}
+		return userWithPrismaLastNameEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryLastNameString) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryLastNameString) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "lastName",
 			Value: direction,
@@ -2789,7 +4153,7 @@ func (r usersQueryLastNameString) Order(direction SortOrder) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) In(value []string) usersDefaultParam {
+func (r userQueryLastNameString) In(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2798,7 +4162,7 @@ func (r usersQueryLastNameString) In(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2813,14 +4177,14 @@ func (r usersQueryLastNameString) In(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) InIfPresent(value []string) usersDefaultParam {
+func (r userQueryLastNameString) InIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryLastNameString) NotIn(value []string) usersDefaultParam {
+func (r userQueryLastNameString) NotIn(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -2829,7 +4193,7 @@ func (r usersQueryLastNameString) NotIn(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2844,16 +4208,16 @@ func (r usersQueryLastNameString) NotIn(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) NotInIfPresent(value []string) usersDefaultParam {
+func (r userQueryLastNameString) NotInIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryLastNameString) Lt(value string) usersDefaultParam {
+func (r userQueryLastNameString) Lt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2867,16 +4231,16 @@ func (r usersQueryLastNameString) Lt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) LtIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) LtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryLastNameString) Lte(value string) usersDefaultParam {
+func (r userQueryLastNameString) Lte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2890,16 +4254,16 @@ func (r usersQueryLastNameString) Lte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) LteIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) LteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryLastNameString) Gt(value string) usersDefaultParam {
+func (r userQueryLastNameString) Gt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2913,16 +4277,16 @@ func (r usersQueryLastNameString) Gt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) GtIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) GtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryLastNameString) Gte(value string) usersDefaultParam {
+func (r userQueryLastNameString) Gte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2936,16 +4300,16 @@ func (r usersQueryLastNameString) Gte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) GteIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) GteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryLastNameString) Contains(value string) usersDefaultParam {
+func (r userQueryLastNameString) Contains(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2959,16 +4323,16 @@ func (r usersQueryLastNameString) Contains(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) ContainsIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) ContainsIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Contains(*value)
 }
 
-func (r usersQueryLastNameString) StartsWith(value string) usersDefaultParam {
+func (r userQueryLastNameString) StartsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -2982,16 +4346,16 @@ func (r usersQueryLastNameString) StartsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) StartsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) StartsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.StartsWith(*value)
 }
 
-func (r usersQueryLastNameString) EndsWith(value string) usersDefaultParam {
+func (r userQueryLastNameString) EndsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -3005,16 +4369,16 @@ func (r usersQueryLastNameString) EndsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) EndsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) EndsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.EndsWith(*value)
 }
 
-func (r usersQueryLastNameString) Mode(value QueryMode) usersDefaultParam {
+func (r userQueryLastNameString) Mode(value QueryMode) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -3028,16 +4392,16 @@ func (r usersQueryLastNameString) Mode(value QueryMode) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) ModeIfPresent(value *QueryMode) usersDefaultParam {
+func (r userQueryLastNameString) ModeIfPresent(value *QueryMode) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Mode(*value)
 }
 
-func (r usersQueryLastNameString) Not(value string) usersDefaultParam {
+func (r userQueryLastNameString) Not(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -3051,18 +4415,18 @@ func (r usersQueryLastNameString) Not(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryLastNameString) NotIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) NotIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use StartsWith instead.
 
-func (r usersQueryLastNameString) HasPrefix(value string) usersDefaultParam {
+func (r userQueryLastNameString) HasPrefix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -3077,18 +4441,18 @@ func (r usersQueryLastNameString) HasPrefix(value string) usersDefaultParam {
 }
 
 // deprecated: Use StartsWithIfPresent instead.
-func (r usersQueryLastNameString) HasPrefixIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) HasPrefixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasPrefix(*value)
 }
 
 // deprecated: Use EndsWith instead.
 
-func (r usersQueryLastNameString) HasSuffix(value string) usersDefaultParam {
+func (r userQueryLastNameString) HasSuffix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "lastName",
 			Fields: []builder.Field{
@@ -3103,20 +4467,20 @@ func (r usersQueryLastNameString) HasSuffix(value string) usersDefaultParam {
 }
 
 // deprecated: Use EndsWithIfPresent instead.
-func (r usersQueryLastNameString) HasSuffixIfPresent(value *string) usersDefaultParam {
+func (r userQueryLastNameString) HasSuffixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasSuffix(*value)
 }
 
 // base struct
-type usersQueryEmailString struct{}
+type userQueryEmailString struct{}
 
 // Set the required value of Email
-func (r usersQueryEmailString) Set(value string) usersWithPrismaEmailSetParam {
+func (r userQueryEmailString) Set(value string) userWithPrismaEmailSetParam {
 
-	return usersWithPrismaEmailSetParam{
+	return userWithPrismaEmailSetParam{
 		data: builder.Field{
 			Name:  "email",
 			Value: value,
@@ -3126,17 +4490,17 @@ func (r usersQueryEmailString) Set(value string) usersWithPrismaEmailSetParam {
 }
 
 // Set the optional value of Email dynamically
-func (r usersQueryEmailString) SetIfPresent(value *string) usersWithPrismaEmailSetParam {
+func (r userQueryEmailString) SetIfPresent(value *string) userWithPrismaEmailSetParam {
 	if value == nil {
-		return usersWithPrismaEmailSetParam{}
+		return userWithPrismaEmailSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryEmailString) Equals(value string) usersWithPrismaEmailEqualsParam {
+func (r userQueryEmailString) Equals(value string) userWithPrismaEmailEqualsParam {
 
-	return usersWithPrismaEmailEqualsParam{
+	return userWithPrismaEmailEqualsParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3149,15 +4513,15 @@ func (r usersQueryEmailString) Equals(value string) usersWithPrismaEmailEqualsPa
 	}
 }
 
-func (r usersQueryEmailString) EqualsIfPresent(value *string) usersWithPrismaEmailEqualsParam {
+func (r userQueryEmailString) EqualsIfPresent(value *string) userWithPrismaEmailEqualsParam {
 	if value == nil {
-		return usersWithPrismaEmailEqualsParam{}
+		return userWithPrismaEmailEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryEmailString) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryEmailString) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "email",
 			Value: direction,
@@ -3165,7 +4529,7 @@ func (r usersQueryEmailString) Order(direction SortOrder) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) In(value []string) usersDefaultParam {
+func (r userQueryEmailString) In(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -3174,7 +4538,7 @@ func (r usersQueryEmailString) In(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3189,14 +4553,14 @@ func (r usersQueryEmailString) In(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) InIfPresent(value []string) usersDefaultParam {
+func (r userQueryEmailString) InIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryEmailString) NotIn(value []string) usersDefaultParam {
+func (r userQueryEmailString) NotIn(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -3205,7 +4569,7 @@ func (r usersQueryEmailString) NotIn(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3220,16 +4584,16 @@ func (r usersQueryEmailString) NotIn(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) NotInIfPresent(value []string) usersDefaultParam {
+func (r userQueryEmailString) NotInIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryEmailString) Lt(value string) usersDefaultParam {
+func (r userQueryEmailString) Lt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3243,16 +4607,16 @@ func (r usersQueryEmailString) Lt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) LtIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) LtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryEmailString) Lte(value string) usersDefaultParam {
+func (r userQueryEmailString) Lte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3266,16 +4630,16 @@ func (r usersQueryEmailString) Lte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) LteIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) LteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryEmailString) Gt(value string) usersDefaultParam {
+func (r userQueryEmailString) Gt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3289,16 +4653,16 @@ func (r usersQueryEmailString) Gt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) GtIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) GtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryEmailString) Gte(value string) usersDefaultParam {
+func (r userQueryEmailString) Gte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3312,16 +4676,16 @@ func (r usersQueryEmailString) Gte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) GteIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) GteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryEmailString) Contains(value string) usersDefaultParam {
+func (r userQueryEmailString) Contains(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3335,16 +4699,16 @@ func (r usersQueryEmailString) Contains(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) ContainsIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) ContainsIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Contains(*value)
 }
 
-func (r usersQueryEmailString) StartsWith(value string) usersDefaultParam {
+func (r userQueryEmailString) StartsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3358,16 +4722,16 @@ func (r usersQueryEmailString) StartsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) StartsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) StartsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.StartsWith(*value)
 }
 
-func (r usersQueryEmailString) EndsWith(value string) usersDefaultParam {
+func (r userQueryEmailString) EndsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3381,16 +4745,16 @@ func (r usersQueryEmailString) EndsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) EndsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) EndsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.EndsWith(*value)
 }
 
-func (r usersQueryEmailString) Mode(value QueryMode) usersDefaultParam {
+func (r userQueryEmailString) Mode(value QueryMode) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3404,16 +4768,16 @@ func (r usersQueryEmailString) Mode(value QueryMode) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) ModeIfPresent(value *QueryMode) usersDefaultParam {
+func (r userQueryEmailString) ModeIfPresent(value *QueryMode) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Mode(*value)
 }
 
-func (r usersQueryEmailString) Not(value string) usersDefaultParam {
+func (r userQueryEmailString) Not(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3427,18 +4791,18 @@ func (r usersQueryEmailString) Not(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryEmailString) NotIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) NotIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use StartsWith instead.
 
-func (r usersQueryEmailString) HasPrefix(value string) usersDefaultParam {
+func (r userQueryEmailString) HasPrefix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3453,18 +4817,18 @@ func (r usersQueryEmailString) HasPrefix(value string) usersDefaultParam {
 }
 
 // deprecated: Use StartsWithIfPresent instead.
-func (r usersQueryEmailString) HasPrefixIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) HasPrefixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasPrefix(*value)
 }
 
 // deprecated: Use EndsWith instead.
 
-func (r usersQueryEmailString) HasSuffix(value string) usersDefaultParam {
+func (r userQueryEmailString) HasSuffix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "email",
 			Fields: []builder.Field{
@@ -3479,20 +4843,20 @@ func (r usersQueryEmailString) HasSuffix(value string) usersDefaultParam {
 }
 
 // deprecated: Use EndsWithIfPresent instead.
-func (r usersQueryEmailString) HasSuffixIfPresent(value *string) usersDefaultParam {
+func (r userQueryEmailString) HasSuffixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasSuffix(*value)
 }
 
 // base struct
-type usersQueryPasswordString struct{}
+type userQueryPasswordString struct{}
 
 // Set the required value of Password
-func (r usersQueryPasswordString) Set(value string) usersWithPrismaPasswordSetParam {
+func (r userQueryPasswordString) Set(value string) userWithPrismaPasswordSetParam {
 
-	return usersWithPrismaPasswordSetParam{
+	return userWithPrismaPasswordSetParam{
 		data: builder.Field{
 			Name:  "password",
 			Value: value,
@@ -3502,17 +4866,17 @@ func (r usersQueryPasswordString) Set(value string) usersWithPrismaPasswordSetPa
 }
 
 // Set the optional value of Password dynamically
-func (r usersQueryPasswordString) SetIfPresent(value *string) usersWithPrismaPasswordSetParam {
+func (r userQueryPasswordString) SetIfPresent(value *string) userWithPrismaPasswordSetParam {
 	if value == nil {
-		return usersWithPrismaPasswordSetParam{}
+		return userWithPrismaPasswordSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryPasswordString) Equals(value string) usersWithPrismaPasswordEqualsParam {
+func (r userQueryPasswordString) Equals(value string) userWithPrismaPasswordEqualsParam {
 
-	return usersWithPrismaPasswordEqualsParam{
+	return userWithPrismaPasswordEqualsParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3525,15 +4889,15 @@ func (r usersQueryPasswordString) Equals(value string) usersWithPrismaPasswordEq
 	}
 }
 
-func (r usersQueryPasswordString) EqualsIfPresent(value *string) usersWithPrismaPasswordEqualsParam {
+func (r userQueryPasswordString) EqualsIfPresent(value *string) userWithPrismaPasswordEqualsParam {
 	if value == nil {
-		return usersWithPrismaPasswordEqualsParam{}
+		return userWithPrismaPasswordEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryPasswordString) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryPasswordString) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "password",
 			Value: direction,
@@ -3541,7 +4905,7 @@ func (r usersQueryPasswordString) Order(direction SortOrder) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) In(value []string) usersDefaultParam {
+func (r userQueryPasswordString) In(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -3550,7 +4914,7 @@ func (r usersQueryPasswordString) In(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3565,14 +4929,14 @@ func (r usersQueryPasswordString) In(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) InIfPresent(value []string) usersDefaultParam {
+func (r userQueryPasswordString) InIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryPasswordString) NotIn(value []string) usersDefaultParam {
+func (r userQueryPasswordString) NotIn(value []string) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -3581,7 +4945,7 @@ func (r usersQueryPasswordString) NotIn(value []string) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3596,16 +4960,16 @@ func (r usersQueryPasswordString) NotIn(value []string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) NotInIfPresent(value []string) usersDefaultParam {
+func (r userQueryPasswordString) NotInIfPresent(value []string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryPasswordString) Lt(value string) usersDefaultParam {
+func (r userQueryPasswordString) Lt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3619,16 +4983,16 @@ func (r usersQueryPasswordString) Lt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) LtIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) LtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryPasswordString) Lte(value string) usersDefaultParam {
+func (r userQueryPasswordString) Lte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3642,16 +5006,16 @@ func (r usersQueryPasswordString) Lte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) LteIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) LteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryPasswordString) Gt(value string) usersDefaultParam {
+func (r userQueryPasswordString) Gt(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3665,16 +5029,16 @@ func (r usersQueryPasswordString) Gt(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) GtIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) GtIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryPasswordString) Gte(value string) usersDefaultParam {
+func (r userQueryPasswordString) Gte(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3688,16 +5052,16 @@ func (r usersQueryPasswordString) Gte(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) GteIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) GteIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryPasswordString) Contains(value string) usersDefaultParam {
+func (r userQueryPasswordString) Contains(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3711,16 +5075,16 @@ func (r usersQueryPasswordString) Contains(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) ContainsIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) ContainsIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Contains(*value)
 }
 
-func (r usersQueryPasswordString) StartsWith(value string) usersDefaultParam {
+func (r userQueryPasswordString) StartsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3734,16 +5098,16 @@ func (r usersQueryPasswordString) StartsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) StartsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) StartsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.StartsWith(*value)
 }
 
-func (r usersQueryPasswordString) EndsWith(value string) usersDefaultParam {
+func (r userQueryPasswordString) EndsWith(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3757,16 +5121,16 @@ func (r usersQueryPasswordString) EndsWith(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) EndsWithIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) EndsWithIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.EndsWith(*value)
 }
 
-func (r usersQueryPasswordString) Mode(value QueryMode) usersDefaultParam {
+func (r userQueryPasswordString) Mode(value QueryMode) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3780,16 +5144,16 @@ func (r usersQueryPasswordString) Mode(value QueryMode) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) ModeIfPresent(value *QueryMode) usersDefaultParam {
+func (r userQueryPasswordString) ModeIfPresent(value *QueryMode) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Mode(*value)
 }
 
-func (r usersQueryPasswordString) Not(value string) usersDefaultParam {
+func (r userQueryPasswordString) Not(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3803,18 +5167,18 @@ func (r usersQueryPasswordString) Not(value string) usersDefaultParam {
 	}
 }
 
-func (r usersQueryPasswordString) NotIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) NotIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use StartsWith instead.
 
-func (r usersQueryPasswordString) HasPrefix(value string) usersDefaultParam {
+func (r userQueryPasswordString) HasPrefix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3829,18 +5193,18 @@ func (r usersQueryPasswordString) HasPrefix(value string) usersDefaultParam {
 }
 
 // deprecated: Use StartsWithIfPresent instead.
-func (r usersQueryPasswordString) HasPrefixIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) HasPrefixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasPrefix(*value)
 }
 
 // deprecated: Use EndsWith instead.
 
-func (r usersQueryPasswordString) HasSuffix(value string) usersDefaultParam {
+func (r userQueryPasswordString) HasSuffix(value string) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "password",
 			Fields: []builder.Field{
@@ -3855,20 +5219,20 @@ func (r usersQueryPasswordString) HasSuffix(value string) usersDefaultParam {
 }
 
 // deprecated: Use EndsWithIfPresent instead.
-func (r usersQueryPasswordString) HasSuffixIfPresent(value *string) usersDefaultParam {
+func (r userQueryPasswordString) HasSuffixIfPresent(value *string) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.HasSuffix(*value)
 }
 
 // base struct
-type usersQueryAccessLevelInt struct{}
+type userQueryAccessLevelInt struct{}
 
 // Set the required value of AccessLevel
-func (r usersQueryAccessLevelInt) Set(value int) usersSetParam {
+func (r userQueryAccessLevelInt) Set(value int) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name:  "accessLevel",
 			Value: value,
@@ -3878,18 +5242,18 @@ func (r usersQueryAccessLevelInt) Set(value int) usersSetParam {
 }
 
 // Set the optional value of AccessLevel dynamically
-func (r usersQueryAccessLevelInt) SetIfPresent(value *int) usersSetParam {
+func (r userQueryAccessLevelInt) SetIfPresent(value *int) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
 // Increment the required value of AccessLevel
-func (r usersQueryAccessLevelInt) Increment(value int) usersSetParam {
+func (r userQueryAccessLevelInt) Increment(value int) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -3903,17 +5267,17 @@ func (r usersQueryAccessLevelInt) Increment(value int) usersSetParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) IncrementIfPresent(value *int) usersSetParam {
+func (r userQueryAccessLevelInt) IncrementIfPresent(value *int) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 	return r.Increment(*value)
 }
 
 // Decrement the required value of AccessLevel
-func (r usersQueryAccessLevelInt) Decrement(value int) usersSetParam {
+func (r userQueryAccessLevelInt) Decrement(value int) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -3927,17 +5291,17 @@ func (r usersQueryAccessLevelInt) Decrement(value int) usersSetParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) DecrementIfPresent(value *int) usersSetParam {
+func (r userQueryAccessLevelInt) DecrementIfPresent(value *int) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 	return r.Decrement(*value)
 }
 
 // Multiply the required value of AccessLevel
-func (r usersQueryAccessLevelInt) Multiply(value int) usersSetParam {
+func (r userQueryAccessLevelInt) Multiply(value int) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -3951,17 +5315,17 @@ func (r usersQueryAccessLevelInt) Multiply(value int) usersSetParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) MultiplyIfPresent(value *int) usersSetParam {
+func (r userQueryAccessLevelInt) MultiplyIfPresent(value *int) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 	return r.Multiply(*value)
 }
 
 // Divide the required value of AccessLevel
-func (r usersQueryAccessLevelInt) Divide(value int) usersSetParam {
+func (r userQueryAccessLevelInt) Divide(value int) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -3975,16 +5339,16 @@ func (r usersQueryAccessLevelInt) Divide(value int) usersSetParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) DivideIfPresent(value *int) usersSetParam {
+func (r userQueryAccessLevelInt) DivideIfPresent(value *int) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 	return r.Divide(*value)
 }
 
-func (r usersQueryAccessLevelInt) Equals(value int) usersWithPrismaAccessLevelEqualsParam {
+func (r userQueryAccessLevelInt) Equals(value int) userWithPrismaAccessLevelEqualsParam {
 
-	return usersWithPrismaAccessLevelEqualsParam{
+	return userWithPrismaAccessLevelEqualsParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -3997,15 +5361,15 @@ func (r usersQueryAccessLevelInt) Equals(value int) usersWithPrismaAccessLevelEq
 	}
 }
 
-func (r usersQueryAccessLevelInt) EqualsIfPresent(value *int) usersWithPrismaAccessLevelEqualsParam {
+func (r userQueryAccessLevelInt) EqualsIfPresent(value *int) userWithPrismaAccessLevelEqualsParam {
 	if value == nil {
-		return usersWithPrismaAccessLevelEqualsParam{}
+		return userWithPrismaAccessLevelEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryAccessLevelInt) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryAccessLevelInt) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "accessLevel",
 			Value: direction,
@@ -4013,7 +5377,7 @@ func (r usersQueryAccessLevelInt) Order(direction SortOrder) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) In(value []int) usersDefaultParam {
+func (r userQueryAccessLevelInt) In(value []int) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4022,7 +5386,7 @@ func (r usersQueryAccessLevelInt) In(value []int) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4037,14 +5401,14 @@ func (r usersQueryAccessLevelInt) In(value []int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) InIfPresent(value []int) usersDefaultParam {
+func (r userQueryAccessLevelInt) InIfPresent(value []int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryAccessLevelInt) NotIn(value []int) usersDefaultParam {
+func (r userQueryAccessLevelInt) NotIn(value []int) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4053,7 +5417,7 @@ func (r usersQueryAccessLevelInt) NotIn(value []int) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4068,16 +5432,16 @@ func (r usersQueryAccessLevelInt) NotIn(value []int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) NotInIfPresent(value []int) usersDefaultParam {
+func (r userQueryAccessLevelInt) NotInIfPresent(value []int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryAccessLevelInt) Lt(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) Lt(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4091,16 +5455,16 @@ func (r usersQueryAccessLevelInt) Lt(value int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) LtIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LtIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryAccessLevelInt) Lte(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) Lte(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4114,16 +5478,16 @@ func (r usersQueryAccessLevelInt) Lte(value int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) LteIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LteIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryAccessLevelInt) Gt(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) Gt(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4137,16 +5501,16 @@ func (r usersQueryAccessLevelInt) Gt(value int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) GtIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GtIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryAccessLevelInt) Gte(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) Gte(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4160,16 +5524,16 @@ func (r usersQueryAccessLevelInt) Gte(value int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) GteIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GteIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryAccessLevelInt) Not(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) Not(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4183,18 +5547,18 @@ func (r usersQueryAccessLevelInt) Not(value int) usersDefaultParam {
 	}
 }
 
-func (r usersQueryAccessLevelInt) NotIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) NotIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use Lt instead.
 
-func (r usersQueryAccessLevelInt) LT(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LT(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4209,18 +5573,18 @@ func (r usersQueryAccessLevelInt) LT(value int) usersDefaultParam {
 }
 
 // deprecated: Use LtIfPresent instead.
-func (r usersQueryAccessLevelInt) LTIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LTIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.LT(*value)
 }
 
 // deprecated: Use Lte instead.
 
-func (r usersQueryAccessLevelInt) LTE(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LTE(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4235,18 +5599,18 @@ func (r usersQueryAccessLevelInt) LTE(value int) usersDefaultParam {
 }
 
 // deprecated: Use LteIfPresent instead.
-func (r usersQueryAccessLevelInt) LTEIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) LTEIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.LTE(*value)
 }
 
 // deprecated: Use Gt instead.
 
-func (r usersQueryAccessLevelInt) GT(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GT(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4261,18 +5625,18 @@ func (r usersQueryAccessLevelInt) GT(value int) usersDefaultParam {
 }
 
 // deprecated: Use GtIfPresent instead.
-func (r usersQueryAccessLevelInt) GTIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GTIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.GT(*value)
 }
 
 // deprecated: Use Gte instead.
 
-func (r usersQueryAccessLevelInt) GTE(value int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GTE(value int) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "accessLevel",
 			Fields: []builder.Field{
@@ -4287,20 +5651,20 @@ func (r usersQueryAccessLevelInt) GTE(value int) usersDefaultParam {
 }
 
 // deprecated: Use GteIfPresent instead.
-func (r usersQueryAccessLevelInt) GTEIfPresent(value *int) usersDefaultParam {
+func (r userQueryAccessLevelInt) GTEIfPresent(value *int) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.GTE(*value)
 }
 
 // base struct
-type usersQueryCreatedAtDateTime struct{}
+type userQueryCreatedAtDateTime struct{}
 
 // Set the required value of CreatedAt
-func (r usersQueryCreatedAtDateTime) Set(value DateTime) usersSetParam {
+func (r userQueryCreatedAtDateTime) Set(value DateTime) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name:  "createdAt",
 			Value: value,
@@ -4310,17 +5674,17 @@ func (r usersQueryCreatedAtDateTime) Set(value DateTime) usersSetParam {
 }
 
 // Set the optional value of CreatedAt dynamically
-func (r usersQueryCreatedAtDateTime) SetIfPresent(value *DateTime) usersSetParam {
+func (r userQueryCreatedAtDateTime) SetIfPresent(value *DateTime) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Equals(value DateTime) usersWithPrismaCreatedAtEqualsParam {
+func (r userQueryCreatedAtDateTime) Equals(value DateTime) userWithPrismaCreatedAtEqualsParam {
 
-	return usersWithPrismaCreatedAtEqualsParam{
+	return userWithPrismaCreatedAtEqualsParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4333,15 +5697,15 @@ func (r usersQueryCreatedAtDateTime) Equals(value DateTime) usersWithPrismaCreat
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) EqualsIfPresent(value *DateTime) usersWithPrismaCreatedAtEqualsParam {
+func (r userQueryCreatedAtDateTime) EqualsIfPresent(value *DateTime) userWithPrismaCreatedAtEqualsParam {
 	if value == nil {
-		return usersWithPrismaCreatedAtEqualsParam{}
+		return userWithPrismaCreatedAtEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryCreatedAtDateTime) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "createdAt",
 			Value: direction,
@@ -4349,7 +5713,7 @@ func (r usersQueryCreatedAtDateTime) Order(direction SortOrder) usersDefaultPara
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) In(value []DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) In(value []DateTime) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4358,7 +5722,7 @@ func (r usersQueryCreatedAtDateTime) In(value []DateTime) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4373,14 +5737,14 @@ func (r usersQueryCreatedAtDateTime) In(value []DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) InIfPresent(value []DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) InIfPresent(value []DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryCreatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) NotIn(value []DateTime) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4389,7 +5753,7 @@ func (r usersQueryCreatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4404,16 +5768,16 @@ func (r usersQueryCreatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) NotInIfPresent(value []DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) NotInIfPresent(value []DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryCreatedAtDateTime) Lt(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Lt(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4427,16 +5791,16 @@ func (r usersQueryCreatedAtDateTime) Lt(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) LtIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) LtIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Lte(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Lte(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4450,16 +5814,16 @@ func (r usersQueryCreatedAtDateTime) Lte(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) LteIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) LteIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Gt(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Gt(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4473,16 +5837,16 @@ func (r usersQueryCreatedAtDateTime) Gt(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) GtIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) GtIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Gte(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Gte(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4496,16 +5860,16 @@ func (r usersQueryCreatedAtDateTime) Gte(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) GteIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) GteIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryCreatedAtDateTime) Not(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Not(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4519,18 +5883,18 @@ func (r usersQueryCreatedAtDateTime) Not(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryCreatedAtDateTime) NotIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) NotIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use Lt instead.
 
-func (r usersQueryCreatedAtDateTime) Before(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) Before(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4545,18 +5909,18 @@ func (r usersQueryCreatedAtDateTime) Before(value DateTime) usersDefaultParam {
 }
 
 // deprecated: Use LtIfPresent instead.
-func (r usersQueryCreatedAtDateTime) BeforeIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) BeforeIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Before(*value)
 }
 
 // deprecated: Use Gt instead.
 
-func (r usersQueryCreatedAtDateTime) After(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) After(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4571,18 +5935,18 @@ func (r usersQueryCreatedAtDateTime) After(value DateTime) usersDefaultParam {
 }
 
 // deprecated: Use GtIfPresent instead.
-func (r usersQueryCreatedAtDateTime) AfterIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) AfterIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.After(*value)
 }
 
 // deprecated: Use Lte instead.
 
-func (r usersQueryCreatedAtDateTime) BeforeEquals(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) BeforeEquals(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4597,18 +5961,18 @@ func (r usersQueryCreatedAtDateTime) BeforeEquals(value DateTime) usersDefaultPa
 }
 
 // deprecated: Use LteIfPresent instead.
-func (r usersQueryCreatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.BeforeEquals(*value)
 }
 
 // deprecated: Use Gte instead.
 
-func (r usersQueryCreatedAtDateTime) AfterEquals(value DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) AfterEquals(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "createdAt",
 			Fields: []builder.Field{
@@ -4623,20 +5987,20 @@ func (r usersQueryCreatedAtDateTime) AfterEquals(value DateTime) usersDefaultPar
 }
 
 // deprecated: Use GteIfPresent instead.
-func (r usersQueryCreatedAtDateTime) AfterEqualsIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryCreatedAtDateTime) AfterEqualsIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.AfterEquals(*value)
 }
 
 // base struct
-type usersQueryUpdatedAtDateTime struct{}
+type userQueryUpdatedAtDateTime struct{}
 
 // Set the required value of UpdatedAt
-func (r usersQueryUpdatedAtDateTime) Set(value DateTime) usersSetParam {
+func (r userQueryUpdatedAtDateTime) Set(value DateTime) userSetParam {
 
-	return usersSetParam{
+	return userSetParam{
 		data: builder.Field{
 			Name:  "updatedAt",
 			Value: value,
@@ -4646,17 +6010,17 @@ func (r usersQueryUpdatedAtDateTime) Set(value DateTime) usersSetParam {
 }
 
 // Set the optional value of UpdatedAt dynamically
-func (r usersQueryUpdatedAtDateTime) SetIfPresent(value *DateTime) usersSetParam {
+func (r userQueryUpdatedAtDateTime) SetIfPresent(value *DateTime) userSetParam {
 	if value == nil {
-		return usersSetParam{}
+		return userSetParam{}
 	}
 
 	return r.Set(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Equals(value DateTime) usersWithPrismaUpdatedAtEqualsParam {
+func (r userQueryUpdatedAtDateTime) Equals(value DateTime) userWithPrismaUpdatedAtEqualsParam {
 
-	return usersWithPrismaUpdatedAtEqualsParam{
+	return userWithPrismaUpdatedAtEqualsParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4669,15 +6033,15 @@ func (r usersQueryUpdatedAtDateTime) Equals(value DateTime) usersWithPrismaUpdat
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) EqualsIfPresent(value *DateTime) usersWithPrismaUpdatedAtEqualsParam {
+func (r userQueryUpdatedAtDateTime) EqualsIfPresent(value *DateTime) userWithPrismaUpdatedAtEqualsParam {
 	if value == nil {
-		return usersWithPrismaUpdatedAtEqualsParam{}
+		return userWithPrismaUpdatedAtEqualsParam{}
 	}
 	return r.Equals(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Order(direction SortOrder) usersDefaultParam {
-	return usersDefaultParam{
+func (r userQueryUpdatedAtDateTime) Order(direction SortOrder) userDefaultParam {
+	return userDefaultParam{
 		data: builder.Field{
 			Name:  "updatedAt",
 			Value: direction,
@@ -4685,7 +6049,7 @@ func (r usersQueryUpdatedAtDateTime) Order(direction SortOrder) usersDefaultPara
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) In(value []DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) In(value []DateTime) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4694,7 +6058,7 @@ func (r usersQueryUpdatedAtDateTime) In(value []DateTime) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4709,14 +6073,14 @@ func (r usersQueryUpdatedAtDateTime) In(value []DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) InIfPresent(value []DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) InIfPresent(value []DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.In(value)
 }
 
-func (r usersQueryUpdatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) NotIn(value []DateTime) userDefaultParam {
 
 	var fields []builder.Field
 	for _, v := range value {
@@ -4725,7 +6089,7 @@ func (r usersQueryUpdatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
 		})
 	}
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4740,16 +6104,16 @@ func (r usersQueryUpdatedAtDateTime) NotIn(value []DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) NotInIfPresent(value []DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) NotInIfPresent(value []DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.NotIn(value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Lt(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Lt(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4763,16 +6127,16 @@ func (r usersQueryUpdatedAtDateTime) Lt(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) LtIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) LtIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lt(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Lte(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Lte(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4786,16 +6150,16 @@ func (r usersQueryUpdatedAtDateTime) Lte(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) LteIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) LteIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Lte(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Gt(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Gt(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4809,16 +6173,16 @@ func (r usersQueryUpdatedAtDateTime) Gt(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) GtIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) GtIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gt(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Gte(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Gte(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4832,16 +6196,16 @@ func (r usersQueryUpdatedAtDateTime) Gte(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) GteIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) GteIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Gte(*value)
 }
 
-func (r usersQueryUpdatedAtDateTime) Not(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Not(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4855,18 +6219,18 @@ func (r usersQueryUpdatedAtDateTime) Not(value DateTime) usersDefaultParam {
 	}
 }
 
-func (r usersQueryUpdatedAtDateTime) NotIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) NotIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Not(*value)
 }
 
 // deprecated: Use Lt instead.
 
-func (r usersQueryUpdatedAtDateTime) Before(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) Before(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4881,18 +6245,18 @@ func (r usersQueryUpdatedAtDateTime) Before(value DateTime) usersDefaultParam {
 }
 
 // deprecated: Use LtIfPresent instead.
-func (r usersQueryUpdatedAtDateTime) BeforeIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) BeforeIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.Before(*value)
 }
 
 // deprecated: Use Gt instead.
 
-func (r usersQueryUpdatedAtDateTime) After(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) After(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4907,18 +6271,18 @@ func (r usersQueryUpdatedAtDateTime) After(value DateTime) usersDefaultParam {
 }
 
 // deprecated: Use GtIfPresent instead.
-func (r usersQueryUpdatedAtDateTime) AfterIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) AfterIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.After(*value)
 }
 
 // deprecated: Use Lte instead.
 
-func (r usersQueryUpdatedAtDateTime) BeforeEquals(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) BeforeEquals(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4933,18 +6297,18 @@ func (r usersQueryUpdatedAtDateTime) BeforeEquals(value DateTime) usersDefaultPa
 }
 
 // deprecated: Use LteIfPresent instead.
-func (r usersQueryUpdatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
 	}
 	return r.BeforeEquals(*value)
 }
 
 // deprecated: Use Gte instead.
 
-func (r usersQueryUpdatedAtDateTime) AfterEquals(value DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) AfterEquals(value DateTime) userDefaultParam {
 
-	return usersDefaultParam{
+	return userDefaultParam{
 		data: builder.Field{
 			Name: "updatedAt",
 			Fields: []builder.Field{
@@ -4959,9 +6323,1519 @@ func (r usersQueryUpdatedAtDateTime) AfterEquals(value DateTime) usersDefaultPar
 }
 
 // deprecated: Use GteIfPresent instead.
-func (r usersQueryUpdatedAtDateTime) AfterEqualsIfPresent(value *DateTime) usersDefaultParam {
+func (r userQueryUpdatedAtDateTime) AfterEqualsIfPresent(value *DateTime) userDefaultParam {
 	if value == nil {
-		return usersDefaultParam{}
+		return userDefaultParam{}
+	}
+	return r.AfterEquals(*value)
+}
+
+// Room acts as a namespaces to access query methods for the Room model
+var Room = roomQuery{}
+
+// roomQuery exposes query functions for the room model
+type roomQuery struct {
+	// ID
+	//
+	// @required
+	ID roomQueryIDString
+
+	// RoomName
+	//
+	// @required
+	RoomName roomQueryRoomNameString
+
+	// CreatedAt
+	//
+	// @required
+	CreatedAt roomQueryCreatedAtDateTime
+
+	// UpdatedAt
+	//
+	// @required
+	UpdatedAt roomQueryUpdatedAtDateTime
+}
+
+func (roomQuery) Not(params ...RoomWhereParam) roomDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:     "NOT",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+func (roomQuery) Or(params ...RoomWhereParam) roomDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:     "OR",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+func (roomQuery) And(params ...RoomWhereParam) roomDefaultParam {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:     "AND",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+// base struct
+type roomQueryIDString struct{}
+
+// Set the required value of ID
+func (r roomQueryIDString) Set(value string) roomSetParam {
+
+	return roomSetParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of ID dynamically
+func (r roomQueryIDString) SetIfPresent(value *string) roomSetParam {
+	if value == nil {
+		return roomSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r roomQueryIDString) Equals(value string) roomWithPrismaIDEqualsUniqueParam {
+
+	return roomWithPrismaIDEqualsUniqueParam{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) EqualsIfPresent(value *string) roomWithPrismaIDEqualsUniqueParam {
+	if value == nil {
+		return roomWithPrismaIDEqualsUniqueParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r roomQueryIDString) Order(direction SortOrder) roomDefaultParam {
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: direction,
+		},
+	}
+}
+
+func (r roomQueryIDString) Cursor(cursor string) roomCursorParam {
+	return roomCursorParam{
+		data: builder.Field{
+			Name:  "id",
+			Value: cursor,
+		},
+	}
+}
+
+func (r roomQueryIDString) In(value []string) roomParamUnique {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "in",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) InIfPresent(value []string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.In(value)
+}
+
+func (r roomQueryIDString) NotIn(value []string) roomParamUnique {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "notIn",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) NotInIfPresent(value []string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.NotIn(value)
+}
+
+func (r roomQueryIDString) Lt(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) LtIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Lt(*value)
+}
+
+func (r roomQueryIDString) Lte(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) LteIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Lte(*value)
+}
+
+func (r roomQueryIDString) Gt(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) GtIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Gt(*value)
+}
+
+func (r roomQueryIDString) Gte(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) GteIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Gte(*value)
+}
+
+func (r roomQueryIDString) Contains(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "contains",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) ContainsIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Contains(*value)
+}
+
+func (r roomQueryIDString) StartsWith(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "startsWith",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) StartsWithIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.StartsWith(*value)
+}
+
+func (r roomQueryIDString) EndsWith(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "endsWith",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) EndsWithIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.EndsWith(*value)
+}
+
+func (r roomQueryIDString) Mode(value QueryMode) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "mode",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) ModeIfPresent(value *QueryMode) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Mode(*value)
+}
+
+func (r roomQueryIDString) Not(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "not",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryIDString) NotIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.Not(*value)
+}
+
+// deprecated: Use StartsWith instead.
+
+func (r roomQueryIDString) HasPrefix(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "starts_with",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use StartsWithIfPresent instead.
+func (r roomQueryIDString) HasPrefixIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.HasPrefix(*value)
+}
+
+// deprecated: Use EndsWith instead.
+
+func (r roomQueryIDString) HasSuffix(value string) roomParamUnique {
+
+	return roomParamUnique{
+		data: builder.Field{
+			Name: "id",
+			Fields: []builder.Field{
+				{
+					Name: "ends_with",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use EndsWithIfPresent instead.
+func (r roomQueryIDString) HasSuffixIfPresent(value *string) roomParamUnique {
+	if value == nil {
+		return roomParamUnique{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type roomQueryRoomNameString struct{}
+
+// Set the required value of RoomName
+func (r roomQueryRoomNameString) Set(value string) roomWithPrismaRoomNameSetParam {
+
+	return roomWithPrismaRoomNameSetParam{
+		data: builder.Field{
+			Name:  "roomName",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of RoomName dynamically
+func (r roomQueryRoomNameString) SetIfPresent(value *string) roomWithPrismaRoomNameSetParam {
+	if value == nil {
+		return roomWithPrismaRoomNameSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r roomQueryRoomNameString) Equals(value string) roomWithPrismaRoomNameEqualsParam {
+
+	return roomWithPrismaRoomNameEqualsParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) EqualsIfPresent(value *string) roomWithPrismaRoomNameEqualsParam {
+	if value == nil {
+		return roomWithPrismaRoomNameEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r roomQueryRoomNameString) Order(direction SortOrder) roomDefaultParam {
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:  "roomName",
+			Value: direction,
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) In(value []string) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "in",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) InIfPresent(value []string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.In(value)
+}
+
+func (r roomQueryRoomNameString) NotIn(value []string) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "notIn",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) NotInIfPresent(value []string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.NotIn(value)
+}
+
+func (r roomQueryRoomNameString) Lt(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) LtIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lt(*value)
+}
+
+func (r roomQueryRoomNameString) Lte(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) LteIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lte(*value)
+}
+
+func (r roomQueryRoomNameString) Gt(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) GtIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gt(*value)
+}
+
+func (r roomQueryRoomNameString) Gte(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) GteIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gte(*value)
+}
+
+func (r roomQueryRoomNameString) Contains(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "contains",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) ContainsIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Contains(*value)
+}
+
+func (r roomQueryRoomNameString) StartsWith(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "startsWith",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) StartsWithIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.StartsWith(*value)
+}
+
+func (r roomQueryRoomNameString) EndsWith(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "endsWith",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) EndsWithIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.EndsWith(*value)
+}
+
+func (r roomQueryRoomNameString) Mode(value QueryMode) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "mode",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) ModeIfPresent(value *QueryMode) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Mode(*value)
+}
+
+func (r roomQueryRoomNameString) Not(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "not",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryRoomNameString) NotIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Not(*value)
+}
+
+// deprecated: Use StartsWith instead.
+
+func (r roomQueryRoomNameString) HasPrefix(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "starts_with",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use StartsWithIfPresent instead.
+func (r roomQueryRoomNameString) HasPrefixIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.HasPrefix(*value)
+}
+
+// deprecated: Use EndsWith instead.
+
+func (r roomQueryRoomNameString) HasSuffix(value string) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "roomName",
+			Fields: []builder.Field{
+				{
+					Name: "ends_with",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use EndsWithIfPresent instead.
+func (r roomQueryRoomNameString) HasSuffixIfPresent(value *string) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.HasSuffix(*value)
+}
+
+// base struct
+type roomQueryCreatedAtDateTime struct{}
+
+// Set the required value of CreatedAt
+func (r roomQueryCreatedAtDateTime) Set(value DateTime) roomSetParam {
+
+	return roomSetParam{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of CreatedAt dynamically
+func (r roomQueryCreatedAtDateTime) SetIfPresent(value *DateTime) roomSetParam {
+	if value == nil {
+		return roomSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Equals(value DateTime) roomWithPrismaCreatedAtEqualsParam {
+
+	return roomWithPrismaCreatedAtEqualsParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) EqualsIfPresent(value *DateTime) roomWithPrismaCreatedAtEqualsParam {
+	if value == nil {
+		return roomWithPrismaCreatedAtEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Order(direction SortOrder) roomDefaultParam {
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) In(value []DateTime) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "in",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) InIfPresent(value []DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.In(value)
+}
+
+func (r roomQueryCreatedAtDateTime) NotIn(value []DateTime) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "notIn",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) NotInIfPresent(value []DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.NotIn(value)
+}
+
+func (r roomQueryCreatedAtDateTime) Lt(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) LtIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lt(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Lte(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) LteIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lte(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Gt(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) GtIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gt(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Gte(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) GteIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gte(*value)
+}
+
+func (r roomQueryCreatedAtDateTime) Not(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "not",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryCreatedAtDateTime) NotIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Not(*value)
+}
+
+// deprecated: Use Lt instead.
+
+func (r roomQueryCreatedAtDateTime) Before(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use LtIfPresent instead.
+func (r roomQueryCreatedAtDateTime) BeforeIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Before(*value)
+}
+
+// deprecated: Use Gt instead.
+
+func (r roomQueryCreatedAtDateTime) After(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use GtIfPresent instead.
+func (r roomQueryCreatedAtDateTime) AfterIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.After(*value)
+}
+
+// deprecated: Use Lte instead.
+
+func (r roomQueryCreatedAtDateTime) BeforeEquals(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use LteIfPresent instead.
+func (r roomQueryCreatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.BeforeEquals(*value)
+}
+
+// deprecated: Use Gte instead.
+
+func (r roomQueryCreatedAtDateTime) AfterEquals(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "createdAt",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use GteIfPresent instead.
+func (r roomQueryCreatedAtDateTime) AfterEqualsIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.AfterEquals(*value)
+}
+
+// base struct
+type roomQueryUpdatedAtDateTime struct{}
+
+// Set the required value of UpdatedAt
+func (r roomQueryUpdatedAtDateTime) Set(value DateTime) roomSetParam {
+
+	return roomSetParam{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of UpdatedAt dynamically
+func (r roomQueryUpdatedAtDateTime) SetIfPresent(value *DateTime) roomSetParam {
+	if value == nil {
+		return roomSetParam{}
+	}
+
+	return r.Set(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Equals(value DateTime) roomWithPrismaUpdatedAtEqualsParam {
+
+	return roomWithPrismaUpdatedAtEqualsParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name:  "equals",
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) EqualsIfPresent(value *DateTime) roomWithPrismaUpdatedAtEqualsParam {
+	if value == nil {
+		return roomWithPrismaUpdatedAtEqualsParam{}
+	}
+	return r.Equals(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Order(direction SortOrder) roomDefaultParam {
+	return roomDefaultParam{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) In(value []DateTime) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "in",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) InIfPresent(value []DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.In(value)
+}
+
+func (r roomQueryUpdatedAtDateTime) NotIn(value []DateTime) roomDefaultParam {
+
+	var fields []builder.Field
+	for _, v := range value {
+		fields = append(fields, builder.Field{
+			Value: v,
+		})
+	}
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "notIn",
+
+					List:   true,
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) NotInIfPresent(value []DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.NotIn(value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Lt(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) LtIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lt(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Lte(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) LteIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Lte(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Gt(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) GtIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gt(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Gte(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) GteIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Gte(*value)
+}
+
+func (r roomQueryUpdatedAtDateTime) Not(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "not",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+func (r roomQueryUpdatedAtDateTime) NotIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Not(*value)
+}
+
+// deprecated: Use Lt instead.
+
+func (r roomQueryUpdatedAtDateTime) Before(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "lt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use LtIfPresent instead.
+func (r roomQueryUpdatedAtDateTime) BeforeIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.Before(*value)
+}
+
+// deprecated: Use Gt instead.
+
+func (r roomQueryUpdatedAtDateTime) After(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "gt",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use GtIfPresent instead.
+func (r roomQueryUpdatedAtDateTime) AfterIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.After(*value)
+}
+
+// deprecated: Use Lte instead.
+
+func (r roomQueryUpdatedAtDateTime) BeforeEquals(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "lte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use LteIfPresent instead.
+func (r roomQueryUpdatedAtDateTime) BeforeEqualsIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
+	}
+	return r.BeforeEquals(*value)
+}
+
+// deprecated: Use Gte instead.
+
+func (r roomQueryUpdatedAtDateTime) AfterEquals(value DateTime) roomDefaultParam {
+
+	return roomDefaultParam{
+		data: builder.Field{
+			Name: "updatedAt",
+			Fields: []builder.Field{
+				{
+					Name: "gte",
+
+					Value: value,
+				},
+			},
+		},
+	}
+}
+
+// deprecated: Use GteIfPresent instead.
+func (r roomQueryUpdatedAtDateTime) AfterEqualsIfPresent(value *DateTime) roomDefaultParam {
+	if value == nil {
+		return roomDefaultParam{}
 	}
 	return r.AfterEquals(*value)
 }

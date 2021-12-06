@@ -13,7 +13,7 @@ import (
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/esmaeilmirzaee/bookings/internal/config"
-	"github.com/esmaeilmirzaee/bookings/internal/renders"
+	"github.com/esmaeilmirzaee/bookings/internal/renderer"
 )
 
 const portNumber = ":8080"
@@ -70,7 +70,7 @@ func run() (*drivers.DB, error) {
 	log.Println("Connected to database.")
 
 	app.UseCache = false
-	tc, err := renders.CreateTemplateCache()
+	tc, err := renderer.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("Cannot create template cache")
 		return nil, err
@@ -84,7 +84,7 @@ func run() (*drivers.DB, error) {
 
 	repo := handlers.NewRepository(&app, db)
 	handlers.NewHandlers(repo)
-	renders.NewTemplate(&app)
+	renderer.NewTemplate(&app)
 	helpers.NewHelpers(&app)
 
 	return db, nil
