@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/gob"
+	"github.com/esmaeilmirzaee/bookings/internal/drivers"
 	"github.com/esmaeilmirzaee/bookings/internal/handlers"
 	"github.com/esmaeilmirzaee/bookings/internal/helpers"
 	"github.com/esmaeilmirzaee/bookings/internal/models"
@@ -20,10 +21,20 @@ const portNumber = ":8080"
 var app config.AppConfig
 var session *scs.SessionManager
 
+const dsn = "host=192.168.101.2 port=5234 dbname=bookings user=pgdmn password=secret"
+
 func main() {
-	if err := run(); err != nil {
+	db, err := run()
+	if err != nil {
 		log.Fatal(err)
 	}
+
+	defer func(db *drivers.DB) {
+		err := db.SQL.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+	}(db)
 
 	srv := http.Server{
 		Addr:    portNumber,
@@ -35,7 +46,7 @@ func main() {
 	}
 }
 
-func run() error {
+func run() (*drivers.DB, error) {
 	// Data to store in session
 	gob.Register(models.Reservation{})
 
@@ -50,11 +61,19 @@ func run() error {
 
 	app.Session = session
 
+	// Connect to database
+	log.Println("Connecting to database")
+	db, err := drivers.ConnectSQL(dsn)
+	if err != nil {
+		log.Fatal("Cannot connect to database; Bye")
+	}
+	log.Println("Connected to database.")
+
 	app.UseCache = false
 	tc, err := renders.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("Cannot create template cache")
-		return err
+		return nil, err
 	}
 
 	app.TemplateCache = tc
@@ -63,10 +82,10 @@ func run() error {
 	app.InfoLog = log.New(os.Stdout, "Info\t", log.Ldate|log.Ltime)
 	app.ErrorLog  = log.New(os.Stderr, "Error\t\t", log.Ldate|log.Ltime|log.Lshortfile)
 
-	repo := handlers.NewRepository(&app)
+	repo := handlers.NewRepository(&app, db)
 	handlers.NewHandlers(repo)
 	renders.NewTemplate(&app)
 	helpers.NewHelpers(&app)
 
-	return nil
+	return db, nil
 }

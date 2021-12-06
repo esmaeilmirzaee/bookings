@@ -3,8 +3,11 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/esmaeilmirzaee/bookings/internal/drivers"
 	"github.com/esmaeilmirzaee/bookings/internal/forms"
 	"github.com/esmaeilmirzaee/bookings/internal/helpers"
+	"github.com/esmaeilmirzaee/bookings/internal/repository"
+	"github.com/esmaeilmirzaee/bookings/internal/repository/dbrepo"
 	"log"
 	"net/http"
 
@@ -15,13 +18,15 @@ import (
 
 type Repository struct {
 	App *config.AppConfig
+	DB repository.DatabaseRepo
 }
 
 var Repo *Repository
 
-func NewRepository(a *config.AppConfig) *Repository {
+func NewRepository(a *config.AppConfig, db *drivers.DB) *Repository {
 	return &Repository{
 		App: a,
+		DB: dbrepo.NewPostgresRepo(db.SQL, a),
 	}
 }
 
